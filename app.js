@@ -21,7 +21,7 @@ function updateFromPanelCount() {
 
 function updateFromDimensions() {
     const hDim = parseInt(panelHeight.value)*304.8;
-    const vDim = parseInt(panelWidth.value)&304.8;
+    const vDim = parseInt(panelWidth.value)*304.8;
 
     if (isNaN(hDim) || isNaN(vDim)) return;
 
