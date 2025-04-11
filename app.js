@@ -9,14 +9,22 @@ const panelWidth_mm = document.getElementById("width-mm");
 const panelHeight_in = document.getElementById("height-in");
 const panelWidth_in = document.getElementById("width-in");
 
+const diagonal = document.getElementById("diag");
+
 // Disable all measurement inputs on page load
-[panelHeight_ft, panelWidth_ft, panelHeight_mm, panelWidth_mm, panelHeight_in, panelWidth_in].forEach(input => {
+[panelHeight_ft, panelWidth_ft, panelHeight_mm, panelWidth_mm, panelHeight_in, panelWidth_in,diagonal].forEach(input => {
     input.disabled = true;
 });
 
 function updateFromPanelCount() {
     const hVal = parseInt(hPanels.value);
     const vVal = parseInt(vPanels.value);
+
+    const diagonalLength =(((vVal * 600) ** 2) + ((hVal * 337.5) ** 2))** 0.5;
+    const diagonalInInches = diagonalLength / 25.4;
+
+
+
 
     if (isNaN(hVal) || isNaN(vVal)) return;
 
@@ -32,6 +40,8 @@ function updateFromPanelCount() {
 
     panelHeight_in.value = (hVal * 337.5).toFixed(2)/25.4.toFixed(2);
     panelWidth_in.value = (vVal * 600).toFixed(2)/25.4.toFixed(2);
+
+    diagonal.value = diagonalInInches;
 
 
 
