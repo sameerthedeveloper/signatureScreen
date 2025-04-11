@@ -9,6 +9,11 @@ const panelWidth_mm = document.getElementById("width-mm");
 const panelHeight_in = document.getElementById("height-in");
 const panelWidth_in = document.getElementById("width-in");
 
+// Disable all measurement inputs on page load
+[panelHeight_ft, panelWidth_ft, panelHeight_mm, panelWidth_mm, panelHeight_in, panelWidth_in].forEach(input => {
+    input.disabled = true;
+});
+
 function updateFromPanelCount() {
     const hVal = parseInt(hPanels.value);
     const vVal = parseInt(vPanels.value);
