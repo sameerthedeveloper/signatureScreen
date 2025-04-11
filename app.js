@@ -2,8 +2,10 @@ const hPanels = document.getElementById("h-pannels");
 const vPanels = document.getElementById("v-pannels");
 const totalPanels = document.getElementById("tp");
 
-const panelHeight = document.getElementById("height");
-const panelWidth = document.getElementById("width");
+const panelHeight_ft = document.getElementById("height-ft");
+const panelWidth_ft = document.getElementById("width-ft");
+const panelHeight_mm = document.getElementById("height-mm");
+const panelWidth_mm = document.getElementById("width-mm");
 
 function updateFromPanelCount() {
     const hVal = parseInt(hPanels.value);
@@ -15,26 +17,33 @@ function updateFromPanelCount() {
     totalPanels.textContent = total;
     totalPanels.classList.add("font-bold");
 
-    panelHeight.value = Math.round((hVal * 337.5).toFixed(2)) | 0;
-    panelWidth.value = Math.round((vVal * 600).toFixed(2)) | 0;
+    panelHeight_mm.value = (hVal * 337.5).toFixed(2);
+    panelWidth_mm.value = (vVal * 600).toFixed(2);
+
+    panelHeight_ft.value = (hVal * 337.5).toFixed(2)/304.8 .toFixed(2);
+    panelWidth_ft.value = (vVal * 600).toFixed(2)/304.8.toFixed(2);
+
+
 }
 
-function updateFromDimensions() {
-    const hDim = parseInt(panelHeight.value)*304.8;
-    const vDim = parseInt(panelWidth.value)*304.8;
 
-    if (isNaN(hDim) || isNaN(vDim)) return;
 
-    const hCount = hDim / 337.5;
-    const vCount = vDim / 600;
-    const total = Math.round(hCount * vCount);
+// function updateFromDimensions() {
+//     const hDim = parseInt(panelHeight.value)*304.8;
+//     const vDim = parseInt(panelWidth.value)*304.8;
 
-    totalPanels.textContent = total.toFixed(2) | 0;
-    totalPanels.classList.add("font-bold");
+//     if (isNaN(hDim) || isNaN(vDim)) return;
 
-    hPanels.value = hCount.toFixed(2);
-    vPanels.value = vCount.toFixed(2);
-}
+//     const hCount = hDim / 337.5;
+//     const vCount = vDim / 600;
+//     const total = Math.round(hCount * vCount);
+
+//     totalPanels.textContent = total.toFixed(2) | 0;
+//     totalPanels.classList.add("font-bold");
+
+//     hPanels.value = hCount.toFixed(2);
+//     vPanels.value = vCount.toFixed(2);
+// }
 
 [hPanels, vPanels].forEach(el => el.addEventListener("input", updateFromPanelCount));
-[panelHeight, panelWidth].forEach(el => el.addEventListener("input", updateFromDimensions));
+// [panelHeight, panelWidth].forEach(el => el.addEventListener("input", updateFromDimensions));
