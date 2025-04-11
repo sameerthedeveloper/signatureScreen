@@ -19,8 +19,8 @@ function updateFromPanelCount() {
     totalPanels.textContent = total;
     totalPanels.classList.add("font-bold");
 
-    panelHeight_mm.value = (hVal * 337.5).toFixed(2);
-    panelWidth_mm.value = (vVal * 600).toFixed(2);
+    panelHeight_mm.value = (hVal * 337.5).toFixed(2) ;
+    panelWidth_mm.value = (vVal * 600).toFixed(2) | 0;
 
     panelHeight_ft.value = (hVal * 337.5).toFixed(2)/304.8 .toFixed(2);
     panelWidth_ft.value = (vVal * 600).toFixed(2)/304.8.toFixed(2);
