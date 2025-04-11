@@ -15,8 +15,8 @@ function updateFromPanelCount() {
     totalPanels.textContent = total;
     totalPanels.classList.add("font-bold");
 
-    panelHeight.value = (hVal * 337.5).toFixed(2);
-    panelWidth.value = (vVal * 600).toFixed(2);
+    panelHeight.value = Math.round((hVal * 337.5).toFixed(2)) | 0;
+    panelWidth.value = Math.round((vVal * 600).toFixed(2)) | 0;
 }
 
 function updateFromDimensions() {
@@ -29,7 +29,7 @@ function updateFromDimensions() {
     const vCount = vDim / 600;
     const total = Math.round(hCount * vCount);
 
-    totalPanels.textContent = total.toFixed(2);
+    totalPanels.textContent = total.toFixed(2) | 0;
     totalPanels.classList.add("font-bold");
 
     hPanels.value = hCount.toFixed(2);
