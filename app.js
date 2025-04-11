@@ -29,7 +29,7 @@ function updateFromDimensions() {
     const vCount = vDim / 600;
     const total = Math.round(hCount * vCount);
 
-    totalPanels.textContent = total;
+    totalPanels.textContent = total.toFixed(2);
     totalPanels.classList.add("font-bold");
 
     hPanels.value = hCount.toFixed(2);
