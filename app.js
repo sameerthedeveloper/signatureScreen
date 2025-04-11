@@ -34,23 +34,4 @@ function updateFromPanelCount() {
 }
 
 
-
-// function updateFromDimensions() {
-//     const hDim = parseInt(panelHeight.value)*304.8;
-//     const vDim = parseInt(panelWidth.value)*304.8;
-
-//     if (isNaN(hDim) || isNaN(vDim)) return;
-
-//     const hCount = hDim / 337.5;
-//     const vCount = vDim / 600;
-//     const total = Math.round(hCount * vCount);
-
-//     totalPanels.textContent = total.toFixed(2) | 0;
-//     totalPanels.classList.add("font-bold");
-
-//     hPanels.value = hCount.toFixed(2);
-//     vPanels.value = vCount.toFixed(2);
-// }
-
 [hPanels, vPanels].forEach(el => el.addEventListener("input", updateFromPanelCount));
-// [panelHeight, panelWidth].forEach(el => el.addEventListener("input", updateFromDimensions));
