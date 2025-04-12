@@ -15,6 +15,7 @@ const seires = document.getElementById("series");
 const panelCost = document.getElementById("cost");
 
 const LEDList = { value: 'AS5', label: 'AS5 Series', hPixel: 270, vPixel: 480, cost: 86735 }; // FIXED
+const ProcessorList = [{value:'8k',name:'8K',cost:800000},]
 
 const hPix = document.getElementById("h-pixels");
 const vPix = document.getElementById("v-pixels");
