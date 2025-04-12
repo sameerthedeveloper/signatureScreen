@@ -16,8 +16,12 @@ const panelCost = document.getElementById("cost");
 
 const LEDList = { value: 'AS5', label: 'AS5 Series', hPixel: 270, vPixel: 480, cost: 86735 }; // FIXED
 
+const hPix = document.getElementById("h-pixels");
+const vPix = document.getElementById("v-pixels");
+const totalPix = document.getElementById("tpix");
+
 // Disable all measurement inputs on page load
-[panelHeight_ft, panelWidth_ft, panelHeight_mm, panelWidth_mm, panelHeight_in, panelWidth_in, diagonal].forEach(input => {
+[panelHeight_ft, panelWidth_ft, panelHeight_mm, panelWidth_mm, panelHeight_in, panelWidth_in, diagonal,hPix,vPix].forEach(input => {
     input.disabled = true;
 });
 
@@ -48,7 +52,11 @@ function updateFromPanelCount() {
     const diagonalInInches = diagonalLength / 25.4;
     diagonal.value = diagonalInInches.toFixed(2);
 
+    vPix.value = vVal * LEDList.vPixel;
+    hPix.value = hVal * LEDList.hPixel;
+
     panelCost.innerHTML = (LEDList.cost * total)
+    totalPix.innerHTML = (vPix.value * hPix.value);
 }
 
 [hPanels, vPanels].forEach(el => el.addEventListener("input", updateFromPanelCount));
