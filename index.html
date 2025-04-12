@@ -23,7 +23,7 @@
 
 <body>
 
-    
+
     <div class="h-screen w-screen bg-gray-100 overflow-x-hidden scroll-smooth dark:bg-gray-900 dark:text-white">
         <!-- Header -->
         <div class="w-screen p-4 flex justify-between items-center bg-white shadow-xl z-50  dark:bg-gray-800 dark:text-white"
@@ -197,26 +197,10 @@
                 <!-- Price per Pannel & GST -->
                 <div class="flex gap-3">
 
-                    <!-- Price per Pannel Dropdown -->
-                    <div
-                        class="flex-1 bg-blue-100 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
-                        <select
-                            class="bg-blue-100 w-full text-sm font-medium outline-none text-center dark:bg-gray-700 dark:text-white">
-                            <option disabled selected>Select Pannel Price</option>
-                            <option value="8,00,000">8K </option>
-                            <option value="4,50,000">Prime 4K</option>
-                            <option value="3,00,000">4K - HDR</option>
-                            <option value="2,50,000">4K - SDR</option>
-                        </select>
-                    </div>
 
 
-                    <!-- GST Input -->
-                    <div
-                        class="flex-1 bg-blue-100 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
-                        <input type="number" placeholder="GST (%)"
-                            class="bg-blue-100 w-full text-sm font-medium outline-none text-center dark:bg-gray-700 dark:text-white" />
-                    </div>
+
+
 
                 </div>
 
@@ -322,96 +306,103 @@
 
         <div class="invoice">
             <!-- Quotation Page -->
-<div class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-700 dark:text-white mb-20 ">
+            <div
+                class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-700 dark:text-white mb-20 ">
 
-    <!-- Header -->
-    <h1 class="text-2xl font-bold text-center text-gray-800 dark:text-white">Quotation</h1>
-  
-    <!-- Company & Client Info -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="flex flex-col gap-1">
-        <h2 class="font-bold">From:</h2>
-        <p>Signature Screens</p>
-        <p>123 Business Road</p>
-        <p>Chennai, India</p>
-        <p>Email: sales@signaturescreens.com</p>
-      </div>
-  
-      <div class="flex flex-col gap-1">
-        <h2 class="font-bold">To:</h2>
-        <input type="text" placeholder="Client Name" class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
-        <input type="text" placeholder="Client Address" class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
-        <input type="text" placeholder="Client Email" class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
-      </div>
-    </div>
-  
-    <!-- Quotation Info -->
-    <div class="flex justify-between">
-      <div>
-        <p><span class="font-bold">Quotation No:</span> #QT-001</p>
-      </div>
-      <div>
-        <p><span class="font-bold">Date:</span> <span id="quote-date"></span></p>
-      </div>
-    </div>
-  
-    <!-- Table Head -->
-    <div class="grid grid-cols-4 gap-2 mt-4 text-sm font-bold text-center">
-      <div>Description</div>
-      <div>Qty</div>
-      <div>Unit Price</div>
-      <div>Total</div>
-    </div>
-  
-    <!-- Item Row Example -->
-    <div class="grid grid-cols-4 gap-2 text-sm text-center items-center">
-      <input type="text" placeholder="LED Panel AS5" class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
-      <input type="number" value="10" class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
-      <input type="number" value="1500" class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
-      <span>₹15,000</span>
-    </div>
-  
-    <!-- Add more items button -->
-    <button class="mt-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow">
-      + Add Item
-    </button>
-  
-    <!-- Pricing Summary -->
-    <div class="flex flex-col gap-2 mt-4 text-sm">
-      <div class="flex justify-between">
-        <span>Subtotal:</span>
-        <span>₹15,000</span>
-      </div>
-      <div class="flex justify-between">
-        <span>GST (18%):</span>
-        <span>₹2,700</span>
-      </div>
-      <div class="flex justify-between font-bold text-lg border-t pt-2">
-        <span>Grand Total:</span>
-        <span>₹17,700</span>
-      </div>
-    </div>
-  
-    <!-- Notes -->
-    <div class="mt-4">
-      <h2 class="font-bold text-sm">Notes:</h2>
-      <textarea rows="3" placeholder="Enter additional info or payment terms..."
-        class="w-full bg-blue-100 dark:bg-gray-600 rounded p-2 mt-1 text-sm outline-none"></textarea>
-    </div>
-  
-    <!-- Print or Save -->
-    <div class="flex justify-center gap-4 mt-6">
-      <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl shadow">Download PDF</button>
-      <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow">Print</button>
-    </div>
-  
-  </div>
-  
-  <script>
-    // Auto-fill today's date
-    document.getElementById("quote-date").innerText = new Date().toLocaleDateString();
-  </script>
-  
+                <!-- Header -->
+                <h1 class="text-2xl font-bold text-center text-gray-800 dark:text-white">Quotation</h1>
+
+                <!-- Company & Client Info -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-1">
+                        <h2 class="font-bold">From:</h2>
+                        <p>Signature Screens</p>
+                        <p>123 Business Road</p>
+                        <p>Chennai, India</p>
+                        <p>Email: sales@signaturescreens.com</p>
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <h2 class="font-bold">To:</h2>
+                        <input type="text" placeholder="Client Name"
+                            class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
+                        <input type="text" placeholder="Client Address"
+                            class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
+                        <input type="text" placeholder="Client Email"
+                            class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
+                    </div>
+                </div>
+
+                <!-- Quotation Info -->
+                <div class="flex justify-between">
+                    <div>
+                        <p><span class="font-bold">Quotation No:</span> #QT-001</p>
+                    </div>
+                    <div>
+                        <p><span class="font-bold">Date:</span> <span id="quote-date"></span></p>
+                    </div>
+                </div>
+
+                <!-- Table Head -->
+                <div class="grid grid-cols-4 gap-2 mt-4 text-sm font-bold text-center">
+                    <div>Description</div>
+                    <div>Qty</div>
+                    <div>Unit Price</div>
+                    <div>Total</div>
+                </div>
+
+                <!-- Item Row Example -->
+                <div class="grid grid-cols-4 gap-2 text-sm text-center items-center">
+                    <input type="text" placeholder="LED Panel AS5"
+                        class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
+                    <input type="number" value="10" class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
+                    <input type="number" value="1500" class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
+                    <span>₹15,000</span>
+                </div>
+
+                <!-- Add more items button -->
+                <button
+                    class="mt-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow">
+                    + Add Item
+                </button>
+
+                <!-- Pricing Summary -->
+                <div class="flex flex-col gap-2 mt-4 text-sm">
+                    <div class="flex justify-between">
+                        <span>Subtotal:</span>
+                        <span>₹15,000</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>GST (18%):</span>
+                        <span>₹2,700</span>
+                    </div>
+                    <div class="flex justify-between font-bold text-lg border-t pt-2">
+                        <span>Grand Total:</span>
+                        <span>₹17,700</span>
+                    </div>
+                </div>
+
+                <!-- Notes -->
+                <div class="mt-4">
+                    <h2 class="font-bold text-sm">Notes:</h2>
+                    <textarea rows="3" placeholder="Enter additional info or payment terms..."
+                        class="w-full bg-blue-100 dark:bg-gray-600 rounded p-2 mt-1 text-sm outline-none"></textarea>
+                </div>
+
+                <!-- Print or Save -->
+                <div class="flex justify-center gap-4 mt-6">
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl shadow">Download
+                        PDF</button>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow">Print</button>
+                </div>
+
+            </div>
+
+            <script>
+                // Auto-fill today's date
+                document.getElementById("quote-date").innerText = new Date().toLocaleDateString();
+            </script>
+
         </div>
 
 
