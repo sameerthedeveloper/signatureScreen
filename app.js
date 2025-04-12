@@ -11,22 +11,20 @@ const panelWidth_in = document.getElementById("width-in");
 
 const diagonal = document.getElementById("diag");
 
-const LEDList = [{value:'AS5', label:'AS5 Series',hPixel:270,vPixel:480,cost:86735},]
+const seires = document.getElementById("series");
+const panelCost = document.getElementById("cost");
+
+const LEDList = { value: 'AS5', label: 'AS5 Series', hPixel: 270, vPixel: 480, cost: 86735 }; // FIXED
 
 // Disable all measurement inputs on page load
-[panelHeight_ft, panelWidth_ft, panelHeight_mm, panelWidth_mm, panelHeight_in, panelWidth_in,diagonal].forEach(input => {
+[panelHeight_ft, panelWidth_ft, panelHeight_mm, panelWidth_mm, panelHeight_in, panelWidth_in, diagonal].forEach(input => {
     input.disabled = true;
 });
+
 
 function updateFromPanelCount() {
     const hVal = parseInt(hPanels.value);
     const vVal = parseInt(vPanels.value);
-
-    const diagonalLength =(((vVal * 600) ** 2) + ((hVal * 337.5) ** 2))** 0.5;
-    const diagonalInInches = diagonalLength / 25.4;
-
-
-
 
     if (isNaN(hVal) || isNaN(vVal)) return;
 
@@ -34,21 +32,23 @@ function updateFromPanelCount() {
     totalPanels.textContent = total;
     totalPanels.classList.add("font-bold");
 
-    panelHeight_mm.value = (hVal * 337.5).toFixed(2) ;
-    panelWidth_mm.value = (vVal * 600).toFixed(2) | 0;
+    const height_mm = hVal * 337.5;
+    const width_mm = vVal * 600;
 
-    panelHeight_ft.value = (hVal * 337.5).toFixed(2)/304.8 .toFixed(2);
-    panelWidth_ft.value = (vVal * 600).toFixed(2)/304.8.toFixed(2);
+    panelHeight_mm.value = height_mm.toFixed(2);
+    panelWidth_mm.value = width_mm.toFixed(2);
 
-    panelHeight_in.value = (hVal * 337.5).toFixed(2)/25.4.toFixed(2);
-    panelWidth_in.value = (vVal * 600).toFixed(2)/25.4.toFixed(2);
+    panelHeight_ft.value = (height_mm / 304.8).toFixed(2);
+    panelWidth_ft.value = (width_mm / 304.8).toFixed(2);
 
-    diagonal.value = diagonalInInches;
+    panelHeight_in.value = (height_mm / 25.4).toFixed(2);
+    panelWidth_in.value = (width_mm / 25.4).toFixed(2);
 
+    const diagonalLength = Math.sqrt((width_mm ** 2) + (height_mm ** 2));
+    const diagonalInInches = diagonalLength / 25.4;
+    diagonal.value = diagonalInInches.toFixed(2);
 
-
-
+    panelCost.innerHTML = (LEDList.cost * total)
 }
-
 
 [hPanels, vPanels].forEach(el => el.addEventListener("input", updateFromPanelCount));

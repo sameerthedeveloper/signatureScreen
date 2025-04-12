@@ -33,17 +33,19 @@
             <div class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-800">
                 <h1 class="text-lg font-bold text-gray-800 dark:text-white">Signature Series</h1>
                 <div
-                        class="flex-1 bg-blue-100 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700">
-                        <select class="bg-blue-100 w-full text-sm font-medium outline-none text-center dark:bg-gray-700 dark:text-white">
-                            <option disabled>Select Screen Type</option>
-                            <option value="AS6">AS6 Series</option>
-                            <option value="AS5" selected>AS5 Series</option>
-                            <option value="AS4">AS4 Series</option>
-                            <option value="AS3">AS3 Series</option>
-                            <option value="AS2">AS2 Series</option>
-                            <option value="AS1">AS1 Series</option>
-                        </select>
-                    </div>
+                    class="flex-1 bg-blue-100 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700">
+                    <select
+                        class="bg-blue-100 w-full text-sm font-medium outline-none text-center dark:bg-gray-700 dark:text-white"
+                        id="series">
+                        <option disabled>Select Screen Type</option>
+                        <option value="AS6">AS6 Series</option>
+                        <option value="AS5" selected>AS5 Series</option>
+                        <option value="AS4">AS4 Series</option>
+                        <option value="AS3">AS3 Series</option>
+                        <option value="AS2">AS2 Series</option>
+                        <option value="AS1">AS1 Series</option>
+                    </select>
+                </div>
 
             </div>
             <!-- Panel Config -->
@@ -57,20 +59,22 @@
                     <div class="flex flex-col flex-1 gap-3">
 
                         <!-- H-Pannels Input -->
-                        <div class="bg-blue-100 p-3 rounded-xl shadow border border-black flex items-center dark:bg-gray-700 dark:text-white">
+                        <div
+                            class="bg-blue-100 p-3 rounded-xl shadow border border-black flex items-center dark:bg-gray-700 dark:text-white">
                             <input type="text" placeholder="W-Pannels" id="v-pannels" inputmode="numeric"
                                 class="bg-blue-100 w-full text-sm font-medium text-center outline-none dark:bg-gray-700 dark:text-white " />
                         </div>
 
                         <!-- V-Pannels Input -->
-                        <div class="bg-blue-100 p-3 rounded-xl shadow border border-black flex items-center dark:bg-gray-700 dark:text-white">
+                        <div
+                            class="bg-blue-100 p-3 rounded-xl shadow border border-black flex items-center dark:bg-gray-700 dark:text-white">
                             <input type="text" placeholder="H-Pannels" id="h-pannels" inputmode="numeric"
                                 class="bg-blue-100 w-full text-sm font-medium text-center outline-none dark:bg-gray-700 dark:text-white" />
                         </div>
 
                     </div>
 
-                    
+
 
                     <!-- Right Side: Total Panel Display -->
                     <div
@@ -79,20 +83,20 @@
                     </div>
                 </div>
 
-                 <!-- DIAGONAL -->
-                 <p class="text-center font-bold">Diagonal</p>
+                <!-- DIAGONAL -->
+                <p class="text-center font-bold">Diagonal</p>
 
-                 <div class="flex gap-4 dark:bg-gray-700 dark:text-white">
-                     <!-- INPUT FIELD-->
-                     <div
-                         class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
-                         <input type="text" placeholder="Diagonal" id="diag" 
-                             class="bg-blue-200 w-full text-sm font-medium text-center outline-none dark:bg-gray-700 dark:text-white" />
-                     </div>
- 
-                     
- 
-                 </div>
+                <div class="flex gap-4 dark:bg-gray-700 dark:text-white">
+                    <!-- INPUT FIELD-->
+                    <div
+                        class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
+                        <input type="text" placeholder="Diagonal" id="diag"
+                            class="bg-blue-200 w-full text-sm font-medium text-center outline-none dark:bg-gray-700 dark:text-white" />
+                    </div>
+
+
+
+                </div>
 
                 <!-- Width & Height Inputs mm-->
                 <p class="">Dimensions in mm</p>
@@ -158,7 +162,7 @@
             <!-- Pixel Config -->
             <div class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-700 dark:text-white">
                 <h1 class="text-lg font-bold text-gray-800 dark:text-white">Pixel Configuration</h1>
-                
+
                 <!-- H-Pixels & V-Pixels Inputs -->
                 <div class="flex gap-4">
 
@@ -178,7 +182,8 @@
                 </div>
 
                 <!-- Total Pixels Display -->
-                <div class="bg-blue-200 p-3 rounded-xl border border-black shadow flex justify-center items-center dark:bg-gray-700 dark:text-white">
+                <div
+                    class="bg-blue-200 p-3 rounded-xl border border-black shadow flex justify-center items-center dark:bg-gray-700 dark:text-white">
                     <span class="text-sm font-medium">Total Pixels</span>
                 </div>
             </div>
@@ -193,7 +198,8 @@
                     <!-- Price per Pannel Dropdown -->
                     <div
                         class="flex-1 bg-blue-100 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
-                        <select class="bg-blue-100 w-full text-sm font-medium outline-none text-center dark:bg-gray-700 dark:text-white">
+                        <select
+                            class="bg-blue-100 w-full text-sm font-medium outline-none text-center dark:bg-gray-700 dark:text-white">
                             <option disabled selected>Select Pannel Price</option>
                             <option value="500">₹500</option>
                             <option value="750">₹750</option>
@@ -215,12 +221,15 @@
                 </div>
 
                 <!-- Pannel Price -->
-                <div class="bg-blue-200 p-3 rounded-xl border border-black shadow flex justify-center items-center dark:bg-gray-700 dark:text-white">
+                <div
+                    class="bg-blue-200 p-3 rounded-xl border border-black shadow flex flex-col gap-2 justify-center items-center dark:bg-gray-700 dark:text-white">
                     <span class="text-sm font-medium dark:bg-gray-700 dark:text-white">Pannel Price</span>
+                    <span class="text-sm font-medium dark:bg-gray-700 dark:text-white" id="cost"></span>
                 </div>
 
                 <!-- Total Pannel Price (incl GST) -->
-                <div class="bg-blue-200 p-3 rounded-xl border border-black shadow flex justify-center items-center dark:bg-gray-700 dark:text-white">
+                <div
+                    class="bg-blue-200 p-3 rounded-xl border border-black shadow flex justify-center items-center dark:bg-gray-700 dark:text-white">
                     <span class="text-sm font-medium">Total Pannel Price (incl GST)</span>
                 </div>
             </div>
@@ -238,7 +247,8 @@
                     <!-- Processor Dropdown -->
                     <div
                         class="flex-1 bg-blue-100 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
-                        <select class="bg-blue-100 w-full text-sm font-medium outline-none dark:bg-gray-700 dark:text-white">
+                        <select
+                            class="bg-blue-100 w-full text-sm font-medium outline-none dark:bg-gray-700 dark:text-white">
                             <option disabled selected>Select Processor</option>
                             <option value="10000">Intel i3 - ₹10,000</option>
                             <option value="15000">Intel i5 - ₹15,000</option>
@@ -260,12 +270,14 @@
                 </div>
 
                 <!-- Processor Price -->
-                <div class="bg-blue-200 p-3 rounded-xl border border-black shadow flex justify-center items-center dark:bg-gray-700 dark:text-white">
+                <div
+                    class="bg-blue-200 p-3 rounded-xl border border-black shadow flex justify-center items-center dark:bg-gray-700 dark:text-white">
                     <span class="text-sm font-medium">Processor Price</span>
                 </div>
 
                 <!-- Processor Price (incl GST) -->
-                <div class="bg-blue-200 p-3 rounded-xl border border-black shadow flex justify-center items-center dark:bg-gray-700 dark:text-white">
+                <div
+                    class="bg-blue-200 p-3 rounded-xl border border-black shadow flex justify-center items-center dark:bg-gray-700 dark:text-white">
                     <span class="text-sm font-medium">Processor Price (incl GST)</span>
                 </div>
             </div>
@@ -277,7 +289,8 @@
 
                 <div
                     class="flex justify-center items-center w-full bg-blue-200 rounded-xl border-1 border-black shadow dark:bg-gray-700 dark:text-white">
-                    <div class="bg-blue-200 h-fit m-2 rounded-md dark:bg-gray-700 dark:text-white">Installation Price </div>
+                    <div class="bg-blue-200 h-fit m-2 rounded-md dark:bg-gray-700 dark:text-white">Installation Price
+                    </div>
 
 
                 </div>
@@ -285,7 +298,8 @@
 
             </div>
             <!-- Final Price Config -->
-            <div class=" flex flex-col m-4 bg-white p-3 gap-2 rounded-2xl shadow-2xl mb-20 dark:bg-gray-700 dark:text-white">
+            <div
+                class=" flex flex-col m-4 bg-white p-3 gap-2 rounded-2xl shadow-2xl mb-20 dark:bg-gray-700 dark:text-white">
                 <h1 class="ml-1 font-bold">Final Cost</h1>
 
                 <div
@@ -297,7 +311,8 @@
                 </div>
                 <div
                     class="flex justify-center items-center w-full bg-blue-200 rounded-xl border-1 border-black shadow dark:bg-gray-700 dark:text-white">
-                    <div class="bg-blue-200 h-fit m-2 rounded-md dark:bg-gray-700 dark:text-white ">Final Price (incl GST) </div>
+                    <div class="bg-blue-200 h-fit m-2 rounded-md dark:bg-gray-700 dark:text-white ">Final Price (incl
+                        GST) </div>
 
 
 
@@ -309,7 +324,97 @@
         </div>
 
         <div class="invoice">
+            <!-- Quotation Page -->
+<div class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-700 dark:text-white mb-20 ">
 
+    <!-- Header -->
+    <h1 class="text-2xl font-bold text-center text-gray-800 dark:text-white">Quotation</h1>
+  
+    <!-- Company & Client Info -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-1">
+        <h2 class="font-bold">From:</h2>
+        <p>Signature Screens</p>
+        <p>123 Business Road</p>
+        <p>Chennai, India</p>
+        <p>Email: sales@signaturescreens.com</p>
+      </div>
+  
+      <div class="flex flex-col gap-1">
+        <h2 class="font-bold">To:</h2>
+        <input type="text" placeholder="Client Name" class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
+        <input type="text" placeholder="Client Address" class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
+        <input type="text" placeholder="Client Email" class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
+      </div>
+    </div>
+  
+    <!-- Quotation Info -->
+    <div class="flex justify-between">
+      <div>
+        <p><span class="font-bold">Quotation No:</span> #QT-001</p>
+      </div>
+      <div>
+        <p><span class="font-bold">Date:</span> <span id="quote-date"></span></p>
+      </div>
+    </div>
+  
+    <!-- Table Head -->
+    <div class="grid grid-cols-4 gap-2 mt-4 text-sm font-bold text-center">
+      <div>Description</div>
+      <div>Qty</div>
+      <div>Unit Price</div>
+      <div>Total</div>
+    </div>
+  
+    <!-- Item Row Example -->
+    <div class="grid grid-cols-4 gap-2 text-sm text-center items-center">
+      <input type="text" placeholder="LED Panel AS5" class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
+      <input type="number" value="10" class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
+      <input type="number" value="1500" class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
+      <span>₹15,000</span>
+    </div>
+  
+    <!-- Add more items button -->
+    <button class="mt-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow">
+      + Add Item
+    </button>
+  
+    <!-- Pricing Summary -->
+    <div class="flex flex-col gap-2 mt-4 text-sm">
+      <div class="flex justify-between">
+        <span>Subtotal:</span>
+        <span>₹15,000</span>
+      </div>
+      <div class="flex justify-between">
+        <span>GST (18%):</span>
+        <span>₹2,700</span>
+      </div>
+      <div class="flex justify-between font-bold text-lg border-t pt-2">
+        <span>Grand Total:</span>
+        <span>₹17,700</span>
+      </div>
+    </div>
+  
+    <!-- Notes -->
+    <div class="mt-4">
+      <h2 class="font-bold text-sm">Notes:</h2>
+      <textarea rows="3" placeholder="Enter additional info or payment terms..."
+        class="w-full bg-blue-100 dark:bg-gray-600 rounded p-2 mt-1 text-sm outline-none"></textarea>
+    </div>
+  
+    <!-- Print or Save -->
+    <div class="flex justify-center gap-4 mt-6">
+      <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl shadow">Download PDF</button>
+      <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow">Print</button>
+    </div>
+  
+  </div>
+  
+  <script>
+    // Auto-fill today's date
+    document.getElementById("quote-date").innerText = new Date().toLocaleDateString();
+  </script>
+  
         </div>
 
 
@@ -337,37 +442,7 @@
         </div>
 
     </div>
-    <script>
-
-        const items = document.querySelectorAll('.item');
-        const home = document.querySelector('.home');
-        const invoice = document.querySelector('.invoice');
-
-
-        invoice.style.display = 'none';
-
-
-        items.forEach(item => {
-            item.addEventListener('click', () => {
-
-                items.forEach(element => {
-                    element.classList.remove('active');
-                });
-
-
-                item.classList.add('active');
-
-
-                if (item.classList.contains('home')) {
-                    home.style.display = 'block';
-                    invoice.style.display = 'none';
-                } else if (item.classList.contains('invoice')) {
-                    home.style.display = 'none';
-                    invoice.style.display = 'block';
-                }
-            });
-        });
-    </script>
+    <script src="tab_controll.js"></script>
     <script src="app.js"></script>
 
 
