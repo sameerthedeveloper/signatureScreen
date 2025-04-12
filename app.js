@@ -11,6 +11,8 @@ const panelWidth_in = document.getElementById("width-in");
 
 const diagonal = document.getElementById("diag");
 
+const LEDList = [{value:'AS5', label:'AS5 Series',hPixel:270,vPixel:480,cost:86735},]
+
 // Disable all measurement inputs on page load
 [panelHeight_ft, panelWidth_ft, panelHeight_mm, panelWidth_mm, panelHeight_in, panelWidth_in,diagonal].forEach(input => {
     input.disabled = true;
