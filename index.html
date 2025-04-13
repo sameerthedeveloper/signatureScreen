@@ -42,10 +42,6 @@
                         <option disabled>Select Screen Type</option>
                         <option value="AS6">AS6 Series</option>
                         <option value="AS5" selected>AS5 Series</option>
-                        <option value="AS4">AS4 Series</option>
-                        <option value="AS3">AS3 Series</option>
-                        <option value="AS2">AS2 Series</option>
-                        <option value="AS1">AS1 Series</option>
                     </select>
                 </div>
 
@@ -161,6 +157,7 @@
                 </div>
             </div>
 
+            <!-- Area Config -->
             <div class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-700 dark:text-white">
                 <h1 class="text-lg font-bold text-gray-800 dark:text-white">Area Configuration</h1>
                 <p class="">Area in Square Metre</p>
@@ -241,7 +238,7 @@
                 <!-- Total Pannel Price  -->
                 <div
                     class="bg-blue-200 p-3 rounded-xl border border-black shadow flex flex-col gap-1 justify-center items-center dark:bg-gray-700 dark:text-white">
-                    <span class="text-sm font-medium dark:bg-gray-700 dark:text-white">Total Pannel Price </span>
+                    <span class="text-sm font-medium dark:bg-gray-700 dark:text-white">Total Pannel Price (excl GST)</span>
                     <span class="text-sm font-medium dark:bg-gray-700 dark:text-white" id="tcost"></span>
                 </div>
 
@@ -253,9 +250,6 @@
 
                 </div>
             </div>
-
-
-
 
             <!-- Processor Price Config -->
             <div class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-700 dark:text-white">
@@ -271,10 +265,12 @@
                             class="bg-blue-100 w-full text-sm font-medium outline-none dark:bg-gray-700 dark:text-white"
                             id="prcsr">
                             <option disabled selected>Select Processor</option>
-                            <option value="8K">8K </option>
-                            <option value="4KP">Prime 4K</option>
-                            <option value="4KH">4K - HDR</option>
-                            <option value="4KS">4K - SDR</option>
+                            <option value="1">CF20-4K-HDR-40P (3.25L) </option>
+                            <option value="2">CF20-4K-SDR-80P (2.60L)</option>
+                            <option value="3">CF40-4K-HDR-80P (7L)</option>
+                            <option value="4">CF40-4K-SDR-160P (6.50L)</option>
+                            <option value="5">CF60-4K-HDR-120P (9.25L)</option>
+                            <option value="6">CF60-4K-SDR-240P (8.50L)</option>
                         </select>
                     </div>
 
@@ -284,7 +280,7 @@
                 <!-- Processor Price -->
                 <div
                     class="bg-blue-200 p-3 rounded-xl border border-black shadow flex flex-col justify-center items-center dark:bg-gray-700 dark:text-white">
-                    <span class="text-sm font-medium">Processor Price</span>
+                    <span class="text-sm font-medium">Processor Price (excl GST)</span>
                     <span class="text-sm font-medium" id="p-price"> </span>
 
                 </div>
@@ -298,33 +294,50 @@
                 </div>
             </div>
 
-
             <!-- Installation Price Config -->
             <div class=" flex flex-col m-4 bg-white p-3 gap-2 rounded-2xl shadow-2xl dark:bg-gray-700 dark:text-white">
                 <h1 class="ml-1 font-bold  dark:text-white">Installation Fee</h1>
 
                 <div
-                    class="flex flex-col justify-center items-center w-full bg-blue-200 rounded-xl border-1 border-black shadow dark:bg-gray-700 dark:text-white">
-                    <!-- <div class="bg-blue-200 h-fit m-2 rounded-md dark:bg-gray-700 dark:text-white">Installation Price</div> -->
-                    <div class="bg-blue-200 h-fit m-2 rounded-md dark:bg-gray-700 dark:text-white">
-                        <p class="text-sm font-medium" id="i-price">
-                        </p>
+                        class="flex-1 bg-blue-100 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
+                        <select
+                            class="bg-blue-100 w-full text-sm font-medium outline-none dark:bg-gray-700 dark:text-white"
+                            id="install">
+                            <option disabled selected>Installation Costs</option>
+                            <option value="1">1,00,000 </option>
+                            <option value="2">1,50,000</option>
+                            <option value="3">2,00,000</option>
+                        </select>
                     </div>
 
+                    <!-- Install Price -->
+                <div
+                class="bg-blue-200 p-3 rounded-xl border border-black shadow flex flex-col justify-center items-center dark:bg-gray-700 dark:text-white">
+                <span class="text-sm font-medium">Installation Fee (excl GST)</span>
+                <span class="text-sm font-medium" id="i-price"> </span>
 
+            </div>
 
-                </div>
+            <!-- Insatll Price (incl GST) -->
+            <div
+                class="bg-blue-200 p-3 rounded-xl border border-black shadow flex flex-col justify-center items-center dark:bg-gray-700 dark:text-white">
+                <span class="text-sm font-medium">Installation Fee (incl GST)</span>
+                <span class="text-sm font-medium" id="i-total"></span>
+
+            </div>
+
 
 
             </div>
+
+            </div>
             <!-- Final Price Config -->
-            <div
-                class=" flex flex-col m-4 bg-white p-3  gap-2 rounded-2xl shadow-2xl mb-20 dark:bg-gray-700 dark:text-white">
+            <div class=" flex flex-col m-4 bg-white p-3  gap-2 rounded-2xl shadow-2xl mb-20 dark:bg-gray-700 dark:text-white">
                 <h1 class="ml-1 font-bold">Final Cost</h1>
 
                 <div
                     class="flex flex-col justify-center py-3 items-center w-full bg-blue-200 rounded-xl border-1 border-black shadow dark:bg-gray-700 dark:text-white">
-                    <span class="text-sm font-medium">Final Price</span>
+                    <span class="text-sm font-medium">Final Price (excl GST)</span>
 
                     <p class="text-sm font-medium" id="fp"></p>
 
@@ -349,94 +362,7 @@
         </div>
 
         <div class="invoice">
-            <div class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-700 dark:text-white mb-20">
-                
-                <!-- Header -->
-                <h1 class="text-2xl font-bold text-center">Quotation</h1>
-                
-                <!-- Company & Client Info -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="flex flex-col gap-1">
-                        <h2 class="font-bold">From:</h2>
-                        <p>Signature Screens</p>
-                        <p>123 Business Road</p>
-                        <p>Chennai, India</p>
-                        <p>Email: sales@signaturescreens.com</p>
-                    </div>
-        
-                    <div class="flex flex-col gap-1">
-                        <h2 class="font-bold">To:</h2>
-                        <input type="text" placeholder="Client Name" class="input-field">
-                        <input type="text" placeholder="Client Address" class="input-field">
-                        <input type="text" placeholder="Client Email" class="input-field">
-                    </div>
-                </div>
-        
-                <!-- Quotation Info -->
-                <div class="flex justify-between">
-                    <p><span class="font-bold">Quotation No:</span> <span id="quote-number"></span></p>
-                    <p><span class="font-bold">Date:</span> <span id="quote-date"></span></p>
-                </div>
-        
-                <!-- Panel Details -->
-                <div class="grid grid-cols-4 gap-2 mt-4 text-sm font-bold text-center">
-                    <div>Description</div>
-                    <div>Quantity</div>
-                    <div>Unit Price</div>
-                    <div>Total</div>
-                </div>
-        
-                <div class="grid grid-cols-4 gap-2 text-sm text-center items-center">
-                    <span id="quote-description"></span>
-                    <span id="quote-quantity"></span>
-                    <span id="quote-unit-price"></span>
-                    <span id="quote-total"></span>
-                </div>
-        
-                <!-- Processor Details -->
-                <div class="grid grid-cols-4 gap-2 text-sm text-center items-center">
-                    <span id="quote-processor-description"></span>
-                    <span>1</span>
-                    <span id="quote-processor-cost"></span>
-                    <span id="quote-processor-total"></span>
-                </div>
-        
-                <!-- Installation Details -->
-                <div class="grid grid-cols-4 gap-2 text-sm text-center items-center">
-                    <span>Installation</span>
-                    <span>1</span>
-                    <span id="quote-installation-cost"></span>
-                    <span id="quote-installation-total"></span>
-                </div>
-        
-                <!-- Pricing Summary -->
-                <div class="flex flex-col gap-2 mt-4 text-sm">
-                    <div class="flex justify-between">
-                        <span>Subtotal:</span>
-                        <span id="quote-panel-cost"></span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>GST (18%):</span>
-                        <span id="quote-gst"></span>
-                    </div>
-                    <div class="flex justify-between font-bold text-lg border-t pt-2">
-                        <span>Grand Total:</span>
-                        <span id="quote-grand-total"></span>
-                    </div>
-                </div>
-        
-                <!-- Notes -->
-                <div class="mt-4">
-                    <h2 class="font-bold text-sm">Notes:</h2>
-                    <textarea rows="3" placeholder="Enter additional info or payment terms..." class="w-full input-field mt-1 text-sm outline-none"></textarea>
-                </div>
-        
-                <!-- Print/Download -->
-                <div class="flex justify-center gap-4 mt-6">
-                    <button class="btn-green">Download PDF</button>
-                    <button class="btn-blue">Print</button>
-                </div>
-            </div>
+           
         </div>
         
             

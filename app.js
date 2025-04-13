@@ -24,15 +24,22 @@ const panelCGST = document.getElementById("panelGST");
 
 const LEDList = { value: 'AS5', label: 'AS5 Series', hPixel: 270, vPixel: 480, cost: 86735 }; // FIXED
 const LEDGST = 28;
+let panelGST = 0;
+
+let processorCostvalue = 0;
 
 // const selectedValue = document.getElementById("prcsr")?.value;
 
 const processor = document.getElementById("prcsr");
 const ProcessorList = [
-    { value: '8K', name: '8K', cost: 800000 },
-    { value: '4KP', name: '4KP', cost: 450000 },
-    { value: '4KH', name: '4KH', cost: 300000 },
-    { value: '4KS', name: '4KS', cost: 250000 }
+    { value: '1', label: 'CF40-4K-HDR-40P', cost: 325000 },
+    { value: '2', label: 'CF20-4K-SDR-80P', cost: 260000 },
+    { value: '3', label: 'CF40-4K-HDR-80P', cost: 700000 },
+    { value: '4', label: 'CF40-4K-SDR-160P', cost: 650000 },
+    { value: '5', label: 'CF60-4K-HDR-120P', cost: 925000 },
+    { value: '6', label: 'CF60-4K-SDR-240P', cost: 850000 },
+
+
 ];
 const processorGST = 18;
 const GST18 = 0;
@@ -42,9 +49,12 @@ const hPix = document.getElementById("h-pixels");
 const vPix = document.getElementById("v-pixels");
 const totalPix = document.getElementById("tpix");
 
-const iPrice = document.getElementById("i-price");
-const install_Pirce = 100000;
-iPrice.innerHTML = (install_Pirce).toLocaleString();
+const iPrice = document.getElementById("install");
+const install_Pirce = [
+    { value: '1', cost: 100000, gst: 18000 },
+    { value: '2', cost: 150000, gst: 36000 },
+    { value: '3', cost: 200000, gst: 54000 },
+];
 
 const processorCost = document.getElementById("p-price");
 const proccesorCGST = document.getElementById("tprocess");
@@ -89,18 +99,19 @@ function updateFromPanelCount() {
 
     vPix.value = vVal * LEDList.vPixel;
     hPix.value = hVal * LEDList.hPixel;
-    iPrice.innerHTML = (install_Pirce).toLocaleString();
+    // iPrice.innerHTML = (install_Pirce).toLocaleString();
     tCost = LEDList.cost * total;
+
     panelCost.innerHTML = (LEDList.cost).toLocaleString();
     totalCost.innerHTML = (tCost).toLocaleString();
     console.log(tCost);
-
-    GST28 = tCost * (LEDGST / 100) + tCost;
+    const GST28 = tCost * (LEDGST / 100) + tCost;
+    panelGST = GST28;
     panelCGST.innerHTML = (GST28).toLocaleString();
 
     totalPix.innerHTML = (vPix.value * hPix.value).toLocaleString();
 
-    areamm.innerHTML = ((height_mm * width_mm) /1000000).toLocaleString();
+    areamm.innerHTML = ((height_mm * width_mm) / 1000000).toLocaleString();
     areaft.innerHTML = ((height_mm * width_mm) / 92900).toLocaleString();
 
 
@@ -114,6 +125,7 @@ function updateProcessorCost() {
     const processorCostElement = document.getElementById("p-price");
     const processorGSTElement = document.getElementById("tprocess");
     // pCost = processor.cost;
+    processorCostvalue = processor.cost;
     console.log(processor.cost);
     console.log(tCost + processor.cost);
 
@@ -125,10 +137,35 @@ function updateProcessorCost() {
         processorGSTElement.innerHTML = processor ? GST18.toLocaleString() : "0";
     }
 
-    const fc = parseInt(totalCost.innerHTML) + install_Pirce + processor.cost;
-    const GST = GST18 + GST28 + install_Pirce;
+    // const fc = parseInt(totalCost.innerHTML) + install_Pirce + processor.cost;
+    // const GST = GST18 + GST28 + install_Pirce;
+    // FinalCostGST.innerHTML = GST.toLocaleString();
+    // FinalCost.innerHTML = (tCost + processor.cost + install_Pirce).toLocaleString();
+
+}
+
+function updateInstallCost() {
+    const selectedValue = document.getElementById("install")?.value;
+    const install = install_Pirce.find(p => p.value === selectedValue);
+    console.log(install);
+    
+    const installCostElement = document.getElementById("i-price");
+    const installGSTTotal = document.getElementById("i-total");
+
+
+
+
+
+
+    if (installCostElement) {
+        installCostElement.innerHTML = install ? install.cost.toLocaleString() : "0";
+        installGSTTotal.innerHTML = install ? (install.cost+install.gst).toLocaleString() : "0";
+    }
+
+    const fc = parseInt(tCost) + processorCostvalue + install.cost;
+    const GST = GST18 + panelGST + install.cost;
     FinalCostGST.innerHTML = GST.toLocaleString();
-    FinalCost.innerHTML = (tCost + processor.cost + install_Pirce).toLocaleString();
+    FinalCost.innerHTML = (fc).toLocaleString();
 
 }
 
@@ -136,4 +173,4 @@ function updateProcessorCost() {
 
 [hPanels, vPanels].forEach(el => el.addEventListener("input", updateFromPanelCount));
 processor.addEventListener("input", updateProcessorCost);
-
+iPrice.addEventListener("input", updateInstallCost);
