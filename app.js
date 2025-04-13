@@ -130,3 +130,4 @@ function updateProcessorCost() {
 
 [hPanels, vPanels].forEach(el => el.addEventListener("input", updateFromPanelCount));
 processor.addEventListener("input", updateProcessorCost);
+

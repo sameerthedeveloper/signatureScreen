@@ -319,13 +319,11 @@
         </div>
 
         <div class="invoice">
-            <!-- Quotation Page -->
-            <div
-                class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-700 dark:text-white mb-20 ">
-
+            <div class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-700 dark:text-white mb-20">
+                
                 <!-- Header -->
-                <h1 class="text-2xl font-bold text-center text-gray-800 dark:text-white">Quotation</h1>
-
+                <h1 class="text-2xl font-bold text-center">Quotation</h1>
+                
                 <!-- Company & Client Info -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="flex flex-col gap-1">
@@ -335,89 +333,83 @@
                         <p>Chennai, India</p>
                         <p>Email: sales@signaturescreens.com</p>
                     </div>
-
+        
                     <div class="flex flex-col gap-1">
                         <h2 class="font-bold">To:</h2>
-                        <input type="text" placeholder="Client Name"
-                            class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
-                        <input type="text" placeholder="Client Address"
-                            class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
-                        <input type="text" placeholder="Client Email"
-                            class="bg-blue-100 dark:bg-gray-600 rounded p-2 outline-none">
+                        <input type="text" placeholder="Client Name" class="input-field">
+                        <input type="text" placeholder="Client Address" class="input-field">
+                        <input type="text" placeholder="Client Email" class="input-field">
                     </div>
                 </div>
-
+        
                 <!-- Quotation Info -->
                 <div class="flex justify-between">
-                    <div>
-                        <p><span class="font-bold">Quotation No:</span> #QT-001</p>
-                    </div>
-                    <div>
-                        <p><span class="font-bold">Date:</span> <span id="quote-date"></span></p>
-                    </div>
+                    <p><span class="font-bold">Quotation No:</span> <span id="quote-number"></span></p>
+                    <p><span class="font-bold">Date:</span> <span id="quote-date"></span></p>
                 </div>
-
-                <!-- Table Head -->
+        
+                <!-- Panel Details -->
                 <div class="grid grid-cols-4 gap-2 mt-4 text-sm font-bold text-center">
                     <div>Description</div>
-                    <div>Qty</div>
+                    <div>Quantity</div>
                     <div>Unit Price</div>
                     <div>Total</div>
                 </div>
-
-                <!-- Item Row Example -->
+        
                 <div class="grid grid-cols-4 gap-2 text-sm text-center items-center">
-                    <input type="text" placeholder="LED Panel AS5"
-                        class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
-                    <input type="number" value="10" class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
-                    <input type="number" value="1500" class="p-2 rounded bg-blue-100 dark:bg-gray-600 outline-none">
-                    <span>₹15,000</span>
+                    <span id="quote-description"></span>
+                    <span id="quote-quantity"></span>
+                    <span id="quote-unit-price"></span>
+                    <span id="quote-total"></span>
                 </div>
-
-                <!-- Add more items button -->
-                <button
-                    class="mt-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow">
-                    + Add Item
-                </button>
-
+        
+                <!-- Processor Details -->
+                <div class="grid grid-cols-4 gap-2 text-sm text-center items-center">
+                    <span id="quote-processor-description"></span>
+                    <span>1</span>
+                    <span id="quote-processor-cost"></span>
+                    <span id="quote-processor-total"></span>
+                </div>
+        
+                <!-- Installation Details -->
+                <div class="grid grid-cols-4 gap-2 text-sm text-center items-center">
+                    <span>Installation</span>
+                    <span>1</span>
+                    <span id="quote-installation-cost"></span>
+                    <span id="quote-installation-total"></span>
+                </div>
+        
                 <!-- Pricing Summary -->
                 <div class="flex flex-col gap-2 mt-4 text-sm">
                     <div class="flex justify-between">
                         <span>Subtotal:</span>
-                        <span>₹15,000</span>
+                        <span id="quote-panel-cost"></span>
                     </div>
                     <div class="flex justify-between">
                         <span>GST (18%):</span>
-                        <span>₹2,700</span>
+                        <span id="quote-gst"></span>
                     </div>
                     <div class="flex justify-between font-bold text-lg border-t pt-2">
                         <span>Grand Total:</span>
-                        <span>₹17,700</span>
+                        <span id="quote-grand-total"></span>
                     </div>
                 </div>
-
+        
                 <!-- Notes -->
                 <div class="mt-4">
                     <h2 class="font-bold text-sm">Notes:</h2>
-                    <textarea rows="3" placeholder="Enter additional info or payment terms..."
-                        class="w-full bg-blue-100 dark:bg-gray-600 rounded p-2 mt-1 text-sm outline-none"></textarea>
+                    <textarea rows="3" placeholder="Enter additional info or payment terms..." class="w-full input-field mt-1 text-sm outline-none"></textarea>
                 </div>
-
-                <!-- Print or Save -->
+        
+                <!-- Print/Download -->
                 <div class="flex justify-center gap-4 mt-6">
-                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl shadow">Download
-                        PDF</button>
-                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl shadow">Print</button>
+                    <button class="btn-green">Download PDF</button>
+                    <button class="btn-blue">Print</button>
                 </div>
-
             </div>
-
-            <script>
-                // Auto-fill today's date
-                document.getElementById("quote-date").innerText = new Date().toLocaleDateString();
-            </script>
-
         </div>
+        
+            
 
 
 
