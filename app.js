@@ -15,6 +15,9 @@ const panelWidth_in = document.getElementById("width-in");
 
 const diagonal = document.getElementById("diag");
 
+const areamm = document.getElementById("areamm");
+const areaft = document.getElementById("areaft");
+
 const seires = document.getElementById("series");
 const panelCost = document.getElementById("cost");
 const panelCGST = document.getElementById("panelGST");
@@ -96,6 +99,9 @@ function updateFromPanelCount() {
     panelCGST.innerHTML = (GST28).toLocaleString();
 
     totalPix.innerHTML = (vPix.value * hPix.value).toLocaleString();
+
+    areamm.innerHTML = ((height_mm * width_mm) /1000000).toLocaleString();
+    areaft.innerHTML = ((height_mm * width_mm) / 92900).toLocaleString();
 
 
 
