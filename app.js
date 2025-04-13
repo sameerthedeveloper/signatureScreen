@@ -30,7 +30,7 @@ const ProcessorList = [
     { value: '4KP', name: '4KP', cost: 450000 },
     { value: '4KH', name: '4KH', cost: 300000 },
     { value: '4KS', name: '4KS', cost: 250000 }
-  ];
+];
 const processorGST = 18;
 const GST18 = 0;
 const tporcessor = document.getElementById("tprocess");
@@ -53,7 +53,7 @@ const FinalCost = document.getElementById("fp");
 
 
 // Disable all measurement inputs on page load
-[panelHeight_ft, panelWidth_ft, panelHeight_mm, panelWidth_mm, panelHeight_in, panelWidth_in, diagonal,hPix,vPix].forEach(input => {
+[panelHeight_ft, panelWidth_ft, panelHeight_mm, panelWidth_mm, panelHeight_in, panelWidth_in, diagonal, hPix, vPix].forEach(input => {
     input.disabled = true;
 });
 
@@ -91,8 +91,8 @@ function updateFromPanelCount() {
     panelCost.innerHTML = (LEDList.cost).toLocaleString();
     totalCost.innerHTML = (tCost).toLocaleString();
     console.log(tCost);
-    
-    GST28  = tCost * (LEDGST / 100) + tCost;
+
+    GST28 = tCost * (LEDGST / 100) + tCost;
     panelCGST.innerHTML = (GST28).toLocaleString();
 
     totalPix.innerHTML = (vPix.value * hPix.value).toLocaleString();
@@ -109,24 +109,24 @@ function updateProcessorCost() {
     const processorGSTElement = document.getElementById("tprocess");
     // pCost = processor.cost;
     console.log(processor.cost);
-    console.log(tCost+processor.cost);
-    
-    
+    console.log(tCost + processor.cost);
+
+
     const GST18 = processor.cost * (processorGST / 100) + processor.cost;
-  
+
     if (processorCostElement) {
-      processorCostElement.innerHTML = processor ? processor.cost.toLocaleString() : "0";
-    processorGSTElement.innerHTML = processor ? GST18.toLocaleString() : "0";
+        processorCostElement.innerHTML = processor ? processor.cost.toLocaleString() : "0";
+        processorGSTElement.innerHTML = processor ? GST18.toLocaleString() : "0";
     }
 
     const fc = parseInt(totalCost.innerHTML) + install_Pirce + processor.cost;
-    const GST =GST18 + GST28 + install_Pirce;
+    const GST = GST18 + GST28 + install_Pirce;
     FinalCostGST.innerHTML = GST.toLocaleString();
-    FinalCost.innerHTML = (tCost+processor.cost+install_Pirce).toLocaleString();
+    FinalCost.innerHTML = (tCost + processor.cost + install_Pirce).toLocaleString();
 
-  }
+}
 
-  
+
 
 [hPanels, vPanels].forEach(el => el.addEventListener("input", updateFromPanelCount));
 processor.addEventListener("input", updateProcessorCost);
