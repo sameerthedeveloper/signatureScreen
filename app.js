@@ -87,7 +87,7 @@ function updateFromPanelCount() {
 
     const totalPanelsCount = hVal * vVal;
     quotation.totalPanels = totalPanelsCount;
-    quotation.whpanels = `${hVal} x ${vVal}`;
+    quotation.whpanels = `${vVal} x ${hVal}`;
     totalPanels.textContent = totalPanelsCount;
     totalPanels.classList.add("font-bold");
 

@@ -1,4 +1,5 @@
 function generatePDF() {
+    document.getElementsByClassName('date').valueAsDate = new Date();
     const targetDiv = document.getElementById("pdf-target");
     const today = new Date().toLocaleDateString();
     html2pdf(targetDiv, {
@@ -31,8 +32,10 @@ function generatePDF() {
   
     const tdElements = document.querySelectorAll("td");
     tdElements.forEach(td => {
-      td.style.padding = "8px";
-      td.style.border = "1px solid #e5e7eb";
+      if (!td.classList.contains("gt")) {  // Skip if td has an id
+        td.style.padding = "8px";
+        td.style.border = "1px solid #e5e7eb";
+      }
     });
   
     const table = document.querySelector("table");

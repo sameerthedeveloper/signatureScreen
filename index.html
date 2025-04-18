@@ -375,16 +375,22 @@
                 <div class="grid grid-cols-2 gap-6 mb-6">
                   <div>
                     <h2 class="font-semibold">From:</h2>
-                    <p>Your Company Name</p>
-                    <p>Address, City</p>
-                    <p>Phone: 123-456-7890</p>
-                    <p>Email: company@example.com</p>
+                    <p>CINEMA FOCUS (INDIA) PRIVATE LIMITED</p>
+                    <p>No.71, Dr. Radhakrishnan Salai,</p>
+                    <p>Mylapore,</p>
+                    <p>Chennai - 600 004</p>
+                    <p>GSTIN/UIN : 33AAECC3036B1ZF</p>
+                    <p>State Name : Tamil Nadu, Code : 33</p>
                   </div>
                   <div>
                     <h2 class="font-semibold">To:</h2>
                     <input type="text" placeholder="Customer Name" class="border p-1 w-full mb-1" id="cd"/>
                     <input type="email" placeholder="Customer Email" class="border p-1 w-full mb-1" id="cd"/>
-                    <input type="tel" placeholder="Customer Phone" class="border p-1 w-full" id="cd"/>
+                    <input type="tel" placeholder="Customer Phone" class="border p-1 w-full mb-1" id="cd"/>
+                    <input type="date" placeholder="Quotation Date" class="border p-1 w-full date" id="cd"  />
+                    <script>
+                    
+                    </script>
                   </div>
                 </div>
               
@@ -392,7 +398,7 @@
                 <table class="w-full table-auto border border-collapse mb-6 text-left">
                   <tbody>
                     <tr class="border">
-                      <th class="p-2 bg-gray-100">Signature Series</th>
+                      <th class="p-2 bg-gray-100">Signature Screen Series</th>
                       <td class="p-2" id="quote-series">-</td>
                     </tr>
                     <tr class="border">
@@ -405,7 +411,7 @@
                       </tr>
                     <tr class="border">
                       <th class="p-2 bg-gray-100">Diagonal</th>
-                      <td class="p-2"><span id="quote-diag">-</span> inches</td>
+                      <td class="p-2"><span id="quote-diag" class="text-semibold">-</span> inches</td>
                     </tr>
     
                     <tr class="border">
@@ -438,7 +444,7 @@
                   </thead>
                   <tbody>
                     <tr class="border">
-                      <td class="p-2 border">Signature Sceen</td>
+                      <td class="p-2 border">Signature Screen</td>
                       <td class="p-2 border"></td>
                       <td class="p-2 border" id="quote-total-price">-</td>
                       <td class="p-2 border" id="quote-total-gst">-</td>
@@ -462,12 +468,14 @@
                       <td class="p-2 border" >Grand Total </td>
                       <td class="p-2 border" ></td>
                       <td class="p-2 border" id="quote-grand-total">-</td>
-                      <td class="p-2 border" id="quote-grand-total-gst">-</td>
+                      <td class="p-2 border"  id=""></td>
 
                     </tr>
                     <tr class="border font-bold">
                         <td class="p-2 border" colspan="3">Grand Total incl GST</td>
-                        <td class="p-2 border" id="quote-grand-total-gst">-</td>
+                      <td class="p-2 border gt" rowspan="2" id="quote-grand-total-gst">-</td>
+
+
                       </tr>
                   </tbody>
                 </table>
