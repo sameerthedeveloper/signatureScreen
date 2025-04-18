@@ -84,7 +84,7 @@
                     <!-- Right Side: Total Panel Display -->
                     <div
                         class="flex justify-center items-center flex-1 bg-blue-100 rounded-xl border border-black shadow text-sm font-medium text-center dark:bg-gray-700 dark:text-white">
-                        <p class="text-bold" id="tp"></p>
+                        <p class="text-bold text-3xl" id="tp"></p>
                     </div>
                 </div>
 
@@ -96,32 +96,14 @@
                     <div
                         class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
                         <input type="text" placeholder="Diagonal" id="diag"
-                            class="bg-blue-200 w-full text-sm font-medium text-center outline-none dark:bg-gray-700 dark:text-white" />
+                            class="bg-blue-200 w-full text-sm font-medium font-bold text-center outline-none dark:bg-gray-700 dark:text-white" />
                     </div>
 
 
 
                 </div>
 
-                <!-- Width & Height Inputs mm-->
-                <p class="">Dimensions in mm</p>
-
-                <div class="flex gap-4">
-                    <!-- Width -->
-                    <div
-                        class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
-                        <input type="text" placeholder="Width" id="width-mm"
-                            class="bg-blue-200 w-full text-sm font-medium text-center outline-none dark:bg-gray-700 dark:text-white" />
-                    </div>
-
-                    <!-- Height -->
-                    <div
-                        class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
-                        <input type="text" placeholder="Height" id="height-mm"
-                            class="bg-blue-200 w-full text-sm font-medium text-center outline-none dark:bg-gray-700 dark:text-white" />
-                    </div>
-
-                </div>
+                
                 <!-- Width & Height Inputs ft-->
                 <p class="">Dimensions in foot</p>
 
@@ -162,6 +144,25 @@
                     </div>
 
                 </div>
+                <!-- Width & Height Inputs mm-->
+                <p class="">Dimensions in mm</p>
+
+                <div class="flex gap-4">
+                    <!-- Width -->
+                    <div
+                        class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
+                        <input type="text" placeholder="Width" id="width-mm"
+                            class="bg-blue-200 w-full text-sm font-medium text-center outline-none dark:bg-gray-700 dark:text-white" />
+                    </div>
+
+                    <!-- Height -->
+                    <div
+                        class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
+                        <input type="text" placeholder="Height" id="height-mm"
+                            class="bg-blue-200 w-full text-sm font-medium text-center outline-none dark:bg-gray-700 dark:text-white" />
+                    </div>
+
+                </div>
             </div>
 
             <!-- Area Confg -->
@@ -174,7 +175,7 @@
                     <!-- Area MM -->
                     <div
                         class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
-                    <p class="text-sm font-medium " id="areamm"></p>
+                    <p class="text-sm font-medium font-bold" id="areamm">MM</p>
                         
                     </div>
 
@@ -186,7 +187,7 @@
                     <!-- Area ft -->
                     <div
                         class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
-                    <p class="text-sm font-medium " id="areaft"></p>
+                    <p class="text-sm font-medium font-bold " id="areaft"></p>
                         
                     </div>
 
@@ -408,9 +409,9 @@
                     </tr>
     
                     <tr class="border">
-                      <th class="p-2 bg-gray-100">Area (sq.m / sq.ft)</th>
+                      <th class="p-2 bg-gray-100">Area (sq.ft)</th>
                       <td class="p-2">
-                        <span id="quote-area-mm">-</span> m² / <span id="quote-area-ft">-</span> ft²
+                        <span id="quote-area-ft">-</span> ft²
                       </td>
                     </tr>
                     <tr class="border">
@@ -430,7 +431,9 @@
                     <tr>
                       <th class="p-2 border">Item</th>
                       <th class="p-2 border">Details</th>
-                      <th class="p-2 border">Amount (₹)</th>
+                      <th class="p-2 border">Amount (excl GST)</th>
+                      <th class="p-2 border">Amount (incl GST)</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -438,28 +441,32 @@
                       <td class="p-2 border">Panel</td>
                       <td class="p-2 border" >excl GST </td>
                       <td class="p-2 border" id="quote-total-price">-</td>
+                      <td class="p-2 border" id="quote-total-gst">-</td>
+
                     </tr>
-                    <tr class="border">
-                        <td class="p-2 border">Panel</td>
-                        <td class="p-2 border" >incl GST </td>
-                        <td class="p-2 border" id="quote-total-gst">-</td>
-                      </tr>
                     <tr class="border">
                       <td class="p-2 border">Processor</td>
                       <td class="p-2 border" id="quote-processor">-</td>
                       <td class="p-2 border" id="quote-processor-price">-</td>
+                      <th class="p-2 border" id="quote-proceesor-gst">-</th>
+
                     </tr>
                     <tr class="border">
                       <td class="p-2 border">Installation</td>
-                      <td class="p-2 border">Incl. GST</td>
+                      <td class="p-2 border"></td>
                       <td class="p-2 border" id="quote-install-price">-</td>
+                      <th class="p-2 border" id="quote-install-gst">-</th>
+
                     </tr>
                     <tr class="border font-bold">
-                      <td class="p-2 border" colspan="2">Grand Total</td>
+                      <td class="p-2 border" >Grand Total </td>
+                      <td class="p-2 border" ></td>
                       <td class="p-2 border" id="quote-grand-total">-</td>
+                      <td class="p-2 border" id="quote-grand-total-gst">-</td>
+
                     </tr>
                     <tr class="border font-bold">
-                        <td class="p-2 border" colspan="2">Grand Total incl GST</td>
+                        <td class="p-2 border" colspan="3">Grand Total incl GST</td>
                         <td class="p-2 border" id="quote-grand-total-gst">-</td>
                       </tr>
                   </tbody>
@@ -500,12 +507,7 @@
                     <span class="text-sm">Invoice</span>
                 </div>
 
-                <!-- Invoices Tab
-                <div
-                    class="flex flex-col items-center text-gray-500 hover:text-black cursor-pointer item invoice dark:text-white">
-                    <i class="fa-solid fa-file-invoice-dollar"></i>
-                    <span class="text-sm">Invoice</span>
-                </div> -->
+
 
 
 
@@ -519,7 +521,7 @@
 
     </div>
     <script src="tab_controll.js"></script>
-    <script src="app2.js"></script>
+    <script src="app.js"></script>
     <script src="savetopdf.js"></script>
 
 
