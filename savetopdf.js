@@ -1,58 +1,45 @@
+let api = "sk_8260932a860376029e6f4a230a07589bf5788ae7";
+
 function generatePDF() {
     const targetDiv = document.getElementById("pdf-target");
+    html2pdf(targetDiv, {
+        filename: 'document.pdf',
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: "#ffffff" // Set a solid background if needed
+        },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      });
+      applyTHStyles();
+      
 
-    // Get the content of the target div
-    const content = targetDiv.innerHTML;
-
-    // Get the hidden iframe
-    const iframe = document.getElementById('hidden-iframe');
-    const iframeDoc = iframe.contentWindow.document;
-
-    // Inject the content into the iframe document
-    iframeDoc.open();
-    iframeDoc.write(`
-      <html>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <head>
-          <style>
-            body {
-              font-family: Arial, sans-serif;
-              padding: 20mm; /* Page margins */
-              margin: 0;
-            }
-            .content {
-              background-color: #fff;
-              padding: 20px;
-            }
-            .content h1 {
-              color: #333;
-            }
-            /* A4 page size */
-            @page {
-              size: A4;
-              margin: 0;
-            }
-            body {
-              background: #fff;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="content" id="pdf-target">
-            ${content}
-          </div>
-        </body>
-      </html>
-    `);
-    iframeDoc.close();
-
-    // Wait for the content to load and trigger the print functionality
-    iframe.onload = function() {
-      setTimeout(function() {
-        iframe.contentWindow.print(); // Trigger the print dialog to PDF
-        iframe.contentWindow.onafterprint = function() {
-          iframe.contentWindow.close(); // Close the iframe after print is done
-        }
-      }, 1000); // Wait 1 second to ensure content is fully loaded
-    };
   }
+  function applyTHStyles() {
+    const cd = document.querySelectorAll(".cd");
+    cd.forEach(cd => {
+      cd.classList.remove("border");
+    });
+    const thElements = document.querySelectorAll("th");
+    thElements.forEach(th => {
+      th.style.backgroundColor = "#f3f4f6"; // Tailwind's bg-gray-100
+      th.style.color = "#374151";           // Tailwind's text-gray-700
+      th.style.padding = "8px";
+      th.style.border = "1px solid #e5e7eb";
+      th.style.textAlign = "left";
+    });
+  
+    const tdElements = document.querySelectorAll("td");
+    tdElements.forEach(td => {
+      td.style.padding = "8px";
+      td.style.border = "1px solid #e5e7eb";
+    });
+  
+    const table = document.querySelector("table");
+    if (table) {
+      table.style.borderCollapse = "collapse";
+      table.style.width = "100%";
+    }
+  }
+  
