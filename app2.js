@@ -33,8 +33,8 @@ const ProcessorList = [
 ];
 const installOptions = [
     { value: '1', cost: 100000, gst: 118000 },
-    { value: '2', cost: 150000, gst: 136000 },
-    { value: '3', cost: 200000, gst: 154000 },
+    { value: '2', cost: 150000, gst: 186000 },
+    { value: '3', cost: 200000, gst: 254000 },
 ];
 
 const LEDGST = 28;
