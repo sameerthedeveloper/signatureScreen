@@ -219,14 +219,16 @@ document.getElementById("quote-area-ft").textContent = quotation.areaft;
 document.getElementById("quote-res").textContent = quotation.resolution;
 document.getElementById("quote-total-pixels").textContent = quotation.pixels;
 document.getElementById("quote-total-price").textContent = quotation.panelprice.toLocaleString();
-document.getElementById("quote-panel-gst").textContent = quotation.panelGST.toLocaleString();
+document.getElementById("quote-total-gst").textContent = quotation.panelGST.toLocaleString();
 document.getElementById("quote-processor").textContent = quotation.processor;
 document.getElementById("quote-processor-price").textContent = quotation.processorGST.toLocaleString();
 // document.getElementById("quote-processor-gst").textContent = quotation.processorGST.toLocaleString();
 document.getElementById("quote-install-price").textContent = quotation.installCost.toLocaleString();
 // document.getElementById("quote-install-gst").textContent = quotation.installGST.toLocaleString();
 // document.getElementById("quote-total-price").textContent = quotation.totalCost.toLocaleString();
-document.getElementById("quote-grand-total").textContent = quotation.totalGST.toLocaleString();
+document.getElementById("quote-grand-total").textContent = quotation.totalCost.toLocaleString();
+document.getElementById("quote-grand-total-gst").textContent = quotation.totalGST.toLocaleString();
+
 
 }
 
