@@ -463,22 +463,6 @@
           </div>
           
           
-          <script>
-            function exportPDF() {
-              const element = document.getElementById('quotation');
-              
-              const opt = {
-                margin: 0.5,
-                filename: 'quotation.pdf', // Change this name dynamically if needed
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-              };
-          
-              // This line shows the "Save As" prompt
-              html2pdf().set(opt).from(element).save();
-            }
-          </script>
           
         
             
