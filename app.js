@@ -1,12 +1,12 @@
 let quotation = {
-    series : '',
-    whpanels : '',
-    diagonal : '',
+    series: '',
+    whpanels: '',
+    diagonal: '',
     aream: '',
     areaft: '',
     resolution: '',
     pixels: '',
-    panelprice:'',
+    panelprice: '',
     panelGST: '',
     processor: '',
     processorCost: '',
@@ -17,6 +17,10 @@ let quotation = {
     totalCost: '',
     totalGST: '',
 }
+
+let phase1 = false;
+let phase2 = false;
+let phase3 = false;
 
 
 
@@ -123,7 +127,7 @@ function updateFromPanelCount() {
     quotation.diagonal = diagonalInInches.toFixed(2);
     quotation.aream = ((height_mm * width_mm) / 1000000).toFixed(2);
     quotation.areaft = ((height_mm * width_mm) / 92900).toFixed(2);
-    quotation.resolution = `${LEDList.vPixel*vVal} x ${LEDList.hPixel*hVal}`;
+    quotation.resolution = `${LEDList.vPixel * vVal} x ${LEDList.hPixel * hVal}`;
 
 
     vPix.value = vVal * LEDList.vPixel;
@@ -148,11 +152,17 @@ function updateFromPanelCount() {
     areaft.innerHTML = ((height_mm * width_mm) / 92900).toLocaleString();
 
 
+    phase1 = true;
+
+
+
+
 
 
 }
 
 function updateProcessorCost() {
+    
     const selectedValue = document.getElementById("prcsr")?.value;
     const processor = ProcessorList.find(p => p.value === selectedValue);
     quotation.processor = processor.label;
@@ -174,6 +184,8 @@ function updateProcessorCost() {
         processorGSTElement.innerHTML = processor ? GST18.toLocaleString() : "0";
     }
 
+    // updateFromPanelCount();
+
     // const fc = parseInt(totalCost.innerHTML) + install_Pirce + processor.cost;
     // const GST = GST18 + GST28 + install_Pirce;
     // FinalCostGST.innerHTML = GST.toLocaleString();
@@ -188,9 +200,11 @@ function updateInstallCost() {
     quotation.install = install.value;
     quotation.installCost = install.cost;
     quotation.installGST = install.gst;
-    
+
     const installCostElement = document.getElementById("i-price");
     const installGSTTotal = document.getElementById("i-total");
+    // updateProcessorCost();
+    // updateFromPanelCount()
 
 
 
@@ -199,7 +213,7 @@ function updateInstallCost() {
 
     if (installCostElement) {
         installCostElement.innerHTML = install ? install.cost.toLocaleString() : "0";
-        installGSTTotal.innerHTML = install ? (install.cost+install.gst).toLocaleString() : "0";
+        installGSTTotal.innerHTML = install ? (install.cost + install.gst).toLocaleString() : "0";
     }
 
     const fc = parseInt(tCost) + processorCostvalue + install.cost;
@@ -211,23 +225,23 @@ function updateInstallCost() {
     quotation.totalGST = GST;
     console.log(quotation);
     // Quatation 
-document.getElementById("quote-series").textContent = quotation.series;
-document.getElementById("quote-hv-panels").textContent = quotation.whpanels;
-document.getElementById("quote-diag").textContent = quotation.diagonal;
-document.getElementById("quote-area-mm").textContent = quotation.aream;
-document.getElementById("quote-area-ft").textContent = quotation.areaft;
-document.getElementById("quote-res").textContent = quotation.resolution;
-document.getElementById("quote-total-pixels").textContent = quotation.pixels;
-document.getElementById("quote-total-price").textContent = quotation.panelprice.toLocaleString();
-document.getElementById("quote-total-gst").textContent = quotation.panelGST.toLocaleString();
-document.getElementById("quote-processor").textContent = quotation.processor;
-document.getElementById("quote-processor-price").textContent = quotation.processorGST.toLocaleString();
-// document.getElementById("quote-processor-gst").textContent = quotation.processorGST.toLocaleString();
-document.getElementById("quote-install-price").textContent = quotation.installCost.toLocaleString();
-// document.getElementById("quote-install-gst").textContent = quotation.installGST.toLocaleString();
-// document.getElementById("quote-total-price").textContent = quotation.totalCost.toLocaleString();
-document.getElementById("quote-grand-total").textContent = quotation.totalCost.toLocaleString();
-document.getElementById("quote-grand-total-gst").textContent = quotation.totalGST.toLocaleString();
+    document.getElementById("quote-series").textContent = quotation.series;
+    document.getElementById("quote-hv-panels").textContent = quotation.whpanels;
+    document.getElementById("quote-diag").textContent = quotation.diagonal;
+    document.getElementById("quote-area-mm").textContent = quotation.aream;
+    document.getElementById("quote-area-ft").textContent = quotation.areaft;
+    document.getElementById("quote-res").textContent = quotation.resolution;
+    document.getElementById("quote-total-pixels").textContent = quotation.pixels;
+    document.getElementById("quote-total-price").textContent = quotation.panelprice.toLocaleString();
+    document.getElementById("quote-total-gst").textContent = quotation.panelGST.toLocaleString();
+    document.getElementById("quote-processor").textContent = quotation.processor;
+    document.getElementById("quote-processor-price").textContent = quotation.processorGST.toLocaleString();
+    // document.getElementById("quote-processor-gst").textContent = quotation.processorGST.toLocaleString();
+    document.getElementById("quote-install-price").textContent = quotation.installCost.toLocaleString();
+    // document.getElementById("quote-install-gst").textContent = quotation.installGST.toLocaleString();
+    // document.getElementById("quote-total-price").textContent = quotation.totalCost.toLocaleString();
+    document.getElementById("quote-grand-total").textContent = quotation.totalCost.toLocaleString();
+    document.getElementById("quote-grand-total-gst").textContent = quotation.totalGST.toLocaleString();
 
 
 }
