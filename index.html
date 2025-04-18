@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/src/dom-to-image.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        
+        
 
 
 
@@ -360,111 +363,118 @@
 
 
         <div class="quta hidden" >
-            <div class="max-w-[210mm] mx-auto p-8 bg-white text-black text-sm font-sans shadow-md rounded-md">
-            <h1 class="text-2xl font-bold mb-4 text-center">QUOTATION</h1>
-          
-            <!-- Top Grid: Company / Customer -->
-            <div class="grid grid-cols-2 gap-6 mb-6">
-              <div>
-                <h2 class="font-semibold">From:</h2>
-                <p>Your Company Name</p>
-                <p>Address, City</p>
-                <p>Phone: 123-456-7890</p>
-                <p>Email: company@example.com</p>
-              </div>
-              <div>
-                <h2 class="font-semibold">To:</h2>
-                <input type="text" placeholder="Customer Name" class="border p-1 w-full mb-1" />
-                <input type="email" placeholder="Customer Email" class="border p-1 w-full mb-1" />
-                <input type="tel" placeholder="Customer Phone" class="border p-1 w-full" />
-              </div>
-            </div>
-          
-            <!-- Details Table -->
-            <table class="w-full table-auto border border-collapse mb-6 text-left">
-              <tbody>
-                <tr class="border">
-                  <th class="p-2 bg-gray-100">Series</th>
-                  <td class="p-2" id="quote-series">-</td>
-                </tr>
-                <tr class="border">
-                  <th class="p-2 bg-gray-100">Panel W x H</th>
-                  <td class="p-2"><span id="quote-hv-panels">-</span></td>
-                </tr>
-                <tr class="border">
-                  <th class="p-2 bg-gray-100">Diagonal</th>
-                  <td class="p-2"><span id="quote-diag">-</span> inches</td>
-                </tr>
+            <div id="pdf-target" style="padding: 20px; background: white;">
 
-                <tr class="border">
-                  <th class="p-2 bg-gray-100">Area (sq.m / sq.ft)</th>
-                  <td class="p-2">
-                    <span id="quote-area-mm">-</span> m² / <span id="quote-area-ft">-</span> ft²
-                  </td>
-                </tr>
-                <tr class="border">
-                  <th class="p-2 bg-gray-100">Resolution</th>
-                  <td class="p-2" id="quote-res">-</td>
-                </tr>
-                <tr class="border">
-                  <th class="p-2 bg-gray-100">Total Pixels</th>
-                  <td class="p-2" id="quote-total-pixels">-</td>
-                </tr>
-              </tbody>
-            </table>
-          
-            <!-- Pricing Table -->
-            <table class="w-full table-auto border border-collapse text-left mb-6">
-              <thead class="bg-gray-100">
-                <tr>
-                  <th class="p-2 border">Item</th>
-                  <th class="p-2 border">Details</th>
-                  <th class="p-2 border">Amount (₹)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border">
-                  <td class="p-2 border">Panel</td>
-                  <td class="p-2 border" >excl GST </td>
-                  <td class="p-2 border" id="quote-total-price">-</td>
-                </tr>
-                <tr class="border">
-                    <td class="p-2 border">Panel</td>
-                    <td class="p-2 border" >incl GST </td>
-                    <td class="p-2 border" id="quote-total-gst">-</td>
-                  </tr>
-                <tr class="border">
-                  <td class="p-2 border">Processor</td>
-                  <td class="p-2 border" id="quote-processor">-</td>
-                  <td class="p-2 border" id="quote-processor-price">-</td>
-                </tr>
-                <tr class="border">
-                  <td class="p-2 border">Installation</td>
-                  <td class="p-2 border">Incl. GST</td>
-                  <td class="p-2 border" id="quote-install-price">-</td>
-                </tr>
-                <tr class="border font-bold">
-                  <td class="p-2 border" colspan="2">Grand Total</td>
-                  <td class="p-2 border" id="quote-grand-total">-</td>
-                </tr>
-                <tr class="border font-bold">
-                    <td class="p-2 border" colspan="2">Grand Total incl GST</td>
-                    <td class="p-2 border" id="quote-grand-total-gst">-</td>
-                  </tr>
-              </tbody>
-            </table>
-          
-            <!-- Footer -->
-            <p class="text-sm mt-4 text-gray-600 ">Thank you for choosing us!</p>
-          </div>
-          <div class=" flex flex-col m-4 bg-white p-3  gap-2 rounded-2xl shadow-2xl mb-20 dark:bg-gray-700 dark:text-white">
-          
-          <button onclick="exportPDF()" class="no-print bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
-            Print Quotation
-          </button>
-          </div>
-          
-          </div>
+            <div class="max-w-[210mm] mx-auto p-8 bg-white text-black text-sm font-sans shadow-md rounded-md">
+                <h1 class="text-2xl font-bold mb-4 text-center">QUOTATION</h1>
+              
+                <!-- Top Grid: Company / Customer -->
+                <div class="grid grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <h2 class="font-semibold">From:</h2>
+                    <p>Your Company Name</p>
+                    <p>Address, City</p>
+                    <p>Phone: 123-456-7890</p>
+                    <p>Email: company@example.com</p>
+                  </div>
+                  <div>
+                    <h2 class="font-semibold">To:</h2>
+                    <input type="text" placeholder="Customer Name" class="border p-1 w-full mb-1" />
+                    <input type="email" placeholder="Customer Email" class="border p-1 w-full mb-1" />
+                    <input type="tel" placeholder="Customer Phone" class="border p-1 w-full" />
+                  </div>
+                </div>
+              
+                <!-- Details Table -->
+                <table class="w-full table-auto border border-collapse mb-6 text-left">
+                  <tbody>
+                    <tr class="border">
+                      <th class="p-2 bg-gray-100">Series</th>
+                      <td class="p-2" id="quote-series">-</td>
+                    </tr>
+                    <tr class="border">
+                      <th class="p-2 bg-gray-100">Panel W x H</th>
+                      <td class="p-2"><span id="quote-hv-panels">-</span></td>
+                    </tr>
+                    <tr class="border">
+                      <th class="p-2 bg-gray-100">Diagonal</th>
+                      <td class="p-2"><span id="quote-diag">-</span> inches</td>
+                    </tr>
+    
+                    <tr class="border">
+                      <th class="p-2 bg-gray-100">Area (sq.m / sq.ft)</th>
+                      <td class="p-2">
+                        <span id="quote-area-mm">-</span> m² / <span id="quote-area-ft">-</span> ft²
+                      </td>
+                    </tr>
+                    <tr class="border">
+                      <th class="p-2 bg-gray-100">Resolution</th>
+                      <td class="p-2" id="quote-res">-</td>
+                    </tr>
+                    <tr class="border">
+                      <th class="p-2 bg-gray-100">Total Pixels</th>
+                      <td class="p-2" id="quote-total-pixels">-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              
+                <!-- Pricing Table -->
+                <table class="w-full table-auto border border-collapse text-left mb-6">
+                  <thead class="bg-gray-100">
+                    <tr>
+                      <th class="p-2 border">Item</th>
+                      <th class="p-2 border">Details</th>
+                      <th class="p-2 border">Amount (₹)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border">
+                      <td class="p-2 border">Panel</td>
+                      <td class="p-2 border" >excl GST </td>
+                      <td class="p-2 border" id="quote-total-price">-</td>
+                    </tr>
+                    <tr class="border">
+                        <td class="p-2 border">Panel</td>
+                        <td class="p-2 border" >incl GST </td>
+                        <td class="p-2 border" id="quote-total-gst">-</td>
+                      </tr>
+                    <tr class="border">
+                      <td class="p-2 border">Processor</td>
+                      <td class="p-2 border" id="quote-processor">-</td>
+                      <td class="p-2 border" id="quote-processor-price">-</td>
+                    </tr>
+                    <tr class="border">
+                      <td class="p-2 border">Installation</td>
+                      <td class="p-2 border">Incl. GST</td>
+                      <td class="p-2 border" id="quote-install-price">-</td>
+                    </tr>
+                    <tr class="border font-bold">
+                      <td class="p-2 border" colspan="2">Grand Total</td>
+                      <td class="p-2 border" id="quote-grand-total">-</td>
+                    </tr>
+                    <tr class="border font-bold">
+                        <td class="p-2 border" colspan="2">Grand Total incl GST</td>
+                        <td class="p-2 border" id="quote-grand-total-gst">-</td>
+                      </tr>
+                  </tbody>
+                </table>
+              
+                <!-- Footer -->
+                <p class="text-sm mt-4 text-gray-600 ">Thank you for choosing us!</p>
+              </div>
+             
+              
+             
+              
+              
+
+            </div>
+            <div class=" flex flex-col m-4 bg-white p-3  gap-2 rounded-2xl shadow-2xl mb-20 dark:bg-gray-700 dark:text-white">
+            <button onclick="captureAndShare()" class="no-print bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
+                Print Quotation
+              </button>
+              </div>
+        </div>
           
         <!-- Bottom Navigation Bar with Icons -->
         <div class="w-full fixed bottom-0 bg-white shadow-lg border-t border-gray-200 z-50 dark:bg-gray-700 ">
@@ -499,6 +509,7 @@
     </div>
     <script src="tab_controll.js"></script>
     <script src="app2.js"></script>
+    <script src="savetopdf.js"></script>
 
 
 </body>
