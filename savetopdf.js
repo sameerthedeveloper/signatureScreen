@@ -1,33 +1,58 @@
-async function captureAndShare() {
-    const node = document.getElementById('pdf-target');
-    if (!node) return alert("Div not found!");
+function generatePDF() {
+    const targetDiv = document.getElementById("pdf-target");
 
-    try {
-      const dataUrl = await domtoimage.toPng(node);
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF();
+    // Get the content of the target div
+    const content = targetDiv.innerHTML;
 
-      const img = new Image();
-      img.src = dataUrl;
-      img.onload = async () => {
-        const pageWidth = pdf.internal.pageSize.getWidth();
-        const pageHeight = (img.height * pageWidth) / img.width;
-        pdf.addImage(img, 'PNG', 0, 0, pageWidth, pageHeight);
+    // Get the hidden iframe
+    const iframe = document.getElementById('hidden-iframe');
+    const iframeDoc = iframe.contentWindow.document;
 
-        const blob = pdf.output('blob');
-        const file = new File([blob], 'div-capture.pdf', { type: 'application/pdf' });
+    // Inject the content into the iframe document
+    iframeDoc.open();
+    iframeDoc.write(`
+      <html>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <head>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              padding: 20mm; /* Page margins */
+              margin: 0;
+            }
+            .content {
+              background-color: #fff;
+              padding: 20px;
+            }
+            .content h1 {
+              color: #333;
+            }
+            /* A4 page size */
+            @page {
+              size: A4;
+              margin: 0;
+            }
+            body {
+              background: #fff;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="content" id="pdf-target">
+            ${content}
+          </div>
+        </body>
+      </html>
+    `);
+    iframeDoc.close();
 
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            title: 'Shared PDF',
-            text: 'Here is your generated PDF.',
-            files: [file],
-          });
-        } else {
-          alert("Web Share API not supported.");
+    // Wait for the content to load and trigger the print functionality
+    iframe.onload = function() {
+      setTimeout(function() {
+        iframe.contentWindow.print(); // Trigger the print dialog to PDF
+        iframe.contentWindow.onafterprint = function() {
+          iframe.contentWindow.close(); // Close the iframe after print is done
         }
-      };
-    } catch (err) {
-      console.error("Error:", err);
-    }
+      }, 1000); // Wait 1 second to ensure content is fully loaded
+    };
   }
