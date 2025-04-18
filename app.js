@@ -1,6 +1,7 @@
 let quotation = {
     series: '',
     whpanels: '',
+    totalPanels: '',
     diagonal: '',
     aream: '',
     areaft: '',
@@ -85,6 +86,7 @@ function updateFromPanelCount() {
     if (isNaN(hVal) || isNaN(vVal)) return;
 
     const totalPanelsCount = hVal * vVal;
+    quotation.totalPanels = totalPanelsCount;
     quotation.whpanels = `${hVal} x ${vVal}`;
     totalPanels.textContent = totalPanelsCount;
     totalPanels.classList.add("font-bold");
@@ -187,18 +189,25 @@ function updateInstallCost() {
 
 
 function updateQuotationSummary() {
+    // panelConfig
     document.getElementById("quote-series").textContent = quotation.series;
     document.getElementById("quote-hv-panels").textContent = quotation.whpanels;
+    document.getElementById("quote-panel-count").textContent = quotation.totalPanels;
     document.getElementById("quote-diag").textContent = quotation.diagonal;
-    document.getElementById("quote-area-mm").textContent = quotation.aream;
     document.getElementById("quote-area-ft").textContent = quotation.areaft;
     document.getElementById("quote-res").textContent = quotation.resolution;
     document.getElementById("quote-total-pixels").textContent = quotation.pixels;
+    // panelCost
     document.getElementById("quote-total-price").textContent = quotation.panelprice.toLocaleString();
     document.getElementById("quote-total-gst").textContent = quotation.panelGST.toLocaleString();
+    // processorCost
     document.getElementById("quote-processor").textContent = quotation.processor;
-    document.getElementById("quote-processor-price").textContent = quotation.processorGST.toLocaleString();
+    document.getElementById("quote-processor-price").textContent = quotation.processorCost.toLocaleString();
+    document.getElementById("quote-processor-gst").textContent = quotation.processorGST.toLocaleString();
+    // installCost
     document.getElementById("quote-install-price").textContent = quotation.installCost.toLocaleString();
+    document.getElementById("quote-install-gst").textContent = quotation.installGST.toLocaleString();
+    // totalCost
     document.getElementById("quote-grand-total").textContent = quotation.totalCost.toLocaleString();
     document.getElementById("quote-grand-total-gst").textContent = quotation.totalGST.toLocaleString();
 }
