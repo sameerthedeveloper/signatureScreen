@@ -130,6 +130,7 @@ function updateFromPanelCount() {
     hPix.value = hVal * LEDList.hPixel;
     // iPrice.innerHTML = (install_Pirce).toLocaleString();
     tCost = LEDList.cost * total;
+    quotation.panelprice = tCost;
     quotation.series = LEDList.label;
     quotation.pixels = vPix.value * hPix.value;
 
@@ -137,6 +138,7 @@ function updateFromPanelCount() {
     totalCost.innerHTML = (tCost).toLocaleString();
     console.log(tCost);
     const GST28 = tCost * (LEDGST / 100) + tCost;
+    quotation.panelGST = GST28;
     panelGST = GST28;
     panelCGST.innerHTML = (GST28).toLocaleString();
 
@@ -216,7 +218,8 @@ document.getElementById("quote-area-mm").textContent = quotation.aream;
 document.getElementById("quote-area-ft").textContent = quotation.areaft;
 document.getElementById("quote-res").textContent = quotation.resolution;
 document.getElementById("quote-total-pixels").textContent = quotation.pixels;
-document.getElementById("quote-total-price").textContent = quotation.panelprice;
+document.getElementById("quote-total-price").textContent = quotation.panelprice.toLocaleString();
+document.getElementById("quote-panel-gst").textContent = quotation.panelGST.toLocaleString();
 document.getElementById("quote-processor").textContent = quotation.processor;
 document.getElementById("quote-processor-price").textContent = quotation.processorGST.toLocaleString();
 // document.getElementById("quote-processor-gst").textContent = quotation.processorGST.toLocaleString();
