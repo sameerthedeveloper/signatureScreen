@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 
 
     <title>Signature Screens</title>
@@ -27,10 +29,10 @@
     <div class="h-screen w-screen bg-gray-100 overflow-x-hidden scroll-smooth dark:bg-gray-900 dark:text-white">
         <!-- Header -->
         <div class="w-screen p-4 flex justify-between items-center bg-white shadow-xl z-50  dark:bg-gray-800 dark:text-white"
-            style="position:sticky;top:0;">
+            style="position:sticky;top:0;" id="header">
             <h1 class='font-bold font-stretch-ultra-condensed text-3xl'>Signature Screens </h1>
         </div>
-        <div class="home hidden ">
+        <div class="home  ">
             <!-- Series Config -->
             <div class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-800">
                 <h1 class="text-lg font-bold text-gray-800 dark:text-white">Signature Series</h1>
@@ -330,7 +332,6 @@
 
             </div>
 
-            </div>
             <!-- Final Price Config -->
             <div class=" flex flex-col m-4 bg-white p-3  gap-2 rounded-2xl shadow-2xl mb-20 dark:bg-gray-700 dark:text-white">
                 <h1 class="ml-1 font-bold">Final Cost</h1>
@@ -361,9 +362,124 @@
 
         </div>
 
-        <div class="invoice">
-           
-        </div>
+
+
+        <div class="quta" id="quta">
+            <div class="max-w-[210mm] mx-auto p-8 bg-white text-black text-sm font-sans shadow-md rounded-md">
+            <h1 class="text-2xl font-bold mb-4 text-center">QUOTATION</h1>
+          
+            <!-- Top Grid: Company / Customer -->
+            <div class="grid grid-cols-2 gap-6 mb-6">
+              <div>
+                <h2 class="font-semibold">From:</h2>
+                <p>Your Company Name</p>
+                <p>Address, City</p>
+                <p>Phone: 123-456-7890</p>
+                <p>Email: company@example.com</p>
+              </div>
+              <div>
+                <h2 class="font-semibold">To:</h2>
+                <input type="text" placeholder="Customer Name" class="border p-1 w-full mb-1" />
+                <input type="email" placeholder="Customer Email" class="border p-1 w-full mb-1" />
+                <input type="tel" placeholder="Customer Phone" class="border p-1 w-full" />
+              </div>
+            </div>
+          
+            <!-- Details Table -->
+            <table class="w-full table-auto border border-collapse mb-6 text-left">
+              <tbody>
+                <tr class="border">
+                  <th class="p-2 bg-gray-100">Series</th>
+                  <td class="p-2" id="quote-series">-</td>
+                </tr>
+                <tr class="border">
+                  <th class="p-2 bg-gray-100">Panel W x H</th>
+                  <td class="p-2"><span id="quote-hv-panels">-</span></td>
+                </tr>
+                <tr class="border">
+                  <th class="p-2 bg-gray-100">Diagonal</th>
+                  <td class="p-2"><span id="quote-diag">-</span> inches</td>
+                </tr>
+
+                <tr class="border">
+                  <th class="p-2 bg-gray-100">Area (sq.m / sq.ft)</th>
+                  <td class="p-2">
+                    <span id="quote-area-mm">-</span> m² / <span id="quote-area-ft">-</span> ft²
+                  </td>
+                </tr>
+                <tr class="border">
+                  <th class="p-2 bg-gray-100">Resolution</th>
+                  <td class="p-2" id="quote-res">-</td>
+                </tr>
+                <tr class="border">
+                  <th class="p-2 bg-gray-100">Total Pixels</th>
+                  <td class="p-2" id="quote-total-pixels">-</td>
+                </tr>
+              </tbody>
+            </table>
+          
+            <!-- Pricing Table -->
+            <table class="w-full table-auto border border-collapse text-left mb-6">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="p-2 border">Item</th>
+                  <th class="p-2 border">Details</th>
+                  <th class="p-2 border">Amount (₹)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border">
+                  <td class="p-2 border">Panel</td>
+                  <td class="p-2 border">Price </td>
+                  <td class="p-2 border" id="quote-total-price">-</td>
+                </tr>
+                <tr class="border">
+                  <td class="p-2 border">Processor</td>
+                  <td class="p-2 border" id="quote-processor">-</td>
+                  <td class="p-2 border" id="quote-processor-price">-</td>
+                </tr>
+                <tr class="border">
+                  <td class="p-2 border">Installation</td>
+                  <td class="p-2 border">Incl. GST</td>
+                  <td class="p-2 border" id="quote-install-price">-</td>
+                </tr>
+                <tr class="border font-bold">
+                  <td class="p-2 border" colspan="2">Grand Total</td>
+                  <td class="p-2 border" id="quote-grand-total">-</td>
+                </tr>
+              </tbody>
+            </table>
+          
+            <!-- Footer -->
+            <p class="text-sm mt-4 text-gray-600 ">Thank you for choosing us!</p>
+          </div>
+          <div class=" flex flex-col m-4 bg-white p-3  gap-2 rounded-2xl shadow-2xl mb-20 dark:bg-gray-700 dark:text-white">
+          
+          <button onclick="exportPDF()" class="no-print bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white">
+            Print Quotation
+          </button>
+          </div>
+          
+          </div>
+          
+          
+          <script>
+            function exportPDF() {
+              const element = document.getElementById('quotation');
+              
+              const opt = {
+                margin: 0.5,
+                filename: 'quotation.pdf', // Change this name dynamically if needed
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+              };
+          
+              // This line shows the "Save As" prompt
+              html2pdf().set(opt).from(element).save();
+            }
+          </script>
+          
         
             
 
@@ -371,7 +487,7 @@
 
 
         <!-- Bottom Navigation Bar with Icons -->
-        <div class="w-full fixed bottom-0 bg-white shadow-lg border-t border-gray-200 z-50 dark:bg-gray-700 ">
+        <div class="w-full fixed bottom-0 bg-white shadow-lg border-t border-gray-200 z-50 dark:bg-gray-700 " id="bottom-nav">
             <div class="flex justify-around items-center py-3">
 
                 <!-- Home Tab -->

@@ -1,6 +1,6 @@
 const items = document.querySelectorAll('.item');
 const home = document.querySelector('.home');
-const invoice = document.querySelector('.invoice');
+const invoice = document.querySelector('.quta');
 
 
 invoice.style.display = 'none';
