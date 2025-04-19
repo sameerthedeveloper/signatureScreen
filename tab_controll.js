@@ -3,7 +3,7 @@ const home = document.querySelector('.home');
 const invoice = document.querySelector('.quta');
 
 
-invoice.style.display = 'none';
+// invoice.style.display = 'none';
 
 
 items.forEach(item => {

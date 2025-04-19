@@ -37,7 +37,8 @@
             style="position:sticky;top:0;" id="header">
             <h1 class='font-bold font-stretch-ultra-condensed text-3xl'>Signature Screens </h1>
         </div>
-        <div class="home  ">
+       <div class="flex flex-col lg:flex-row lg:gap-4 lg:justify-center lg:items-start lg:mt-16 mt-20 max-sm:mt-1">
+        <div class="home  lg:block ">
             <!-- Series Config -->
             <div class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-800">
                 <h1 class="text-lg font-bold text-gray-800 dark:text-white">Signature Series</h1>
@@ -371,7 +372,7 @@
 
 
 
-        <div class="quta hidden" >
+        <div class="quta hidden lg:block" >
             <div id="pdf-target" style="padding: 20px; background: white;">
 
             <div class="max-w-[210mm] mx-auto p-8 bg-white text-black text-sm font-sans shadow-md rounded-md">
@@ -502,9 +503,10 @@
               </button>
               </div>
         </div>
+       </div>
           
         <!-- Bottom Navigation Bar with Icons -->
-        <div class="w-full fixed bottom-0 bg-white shadow-lg border-t border-gray-200 z-50 dark:bg-gray-700 ">
+        <div class="w-full fixed bottom-0 bg-white shadow-lg border-t border-gray-200 z-50 dark:bg-gray-700 lg:hidden">
             <div class="flex justify-around items-center py-3">
 
                 <!-- Home Tab -->
