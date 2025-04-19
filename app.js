@@ -173,7 +173,7 @@ function updateInstallCost() {
     quotation.installGST = install.gst;
 
     installCostElement.innerHTML = install.cost.toLocaleString();
-    installGST.innerHTML = (install.cost + install.gst).toLocaleString();
+    installGST.innerHTML = (install.gst).toLocaleString();
 
     const grandCost = tCost + processorCostvalue + install.cost;
     const grandGST = quotation.panelGST + quotation.processorGST + install.gst;
