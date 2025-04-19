@@ -73,6 +73,7 @@ const totalPix = document.getElementById("tpix");
 
 const installSelect = document.getElementById("install");
 const installCostElement = document.getElementById("i-price");
+const installGST = document.getElementById("i-gst");
 
 const totalCost = document.getElementById("tcost");
 const FinalCost = document.getElementById("fp");
@@ -172,6 +173,7 @@ function updateInstallCost() {
     quotation.installGST = install.gst;
 
     installCostElement.innerHTML = install.cost.toLocaleString();
+    installGST.innerHTML = (install.cost + install.gst).toLocaleString();
 
     const grandCost = tCost + processorCostvalue + install.cost;
     const grandGST = quotation.panelGST + quotation.processorGST + install.gst;
