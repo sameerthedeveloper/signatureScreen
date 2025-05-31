@@ -26,7 +26,7 @@ let phase3 = false;
 const LEDList = { value: 'AS5', label: 'AS5 Series', hPixel: 270, vPixel: 480, cost: 86735 }; // fixed panel
 const ProcessorList = [
     { value: '1', label: 'CF40-4K-HDR-40P', cost: 325000 },
-    { value: '2', label: 'CF20-4K-SDR-80P', cost: 260000 },
+    { value: '2', label: 'CF20-4K-SDR-80P', cost: 290000 },
     { value: '3', label: 'CF40-4K-HDR-80P', cost: 700000 },
     { value: '4', label: 'CF40-4K-SDR-160P', cost: 650000 },
     { value: '5', label: 'CF60-4K-HDR-120P', cost: 925000 },
