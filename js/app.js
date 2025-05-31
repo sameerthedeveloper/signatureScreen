@@ -16,6 +16,8 @@ let quotation = {
     installCost: '',
     totalCost: '',
     totalGST: '',
+    wwDimension:'',
+
 };
 
 let phase1 = false;
@@ -55,6 +57,9 @@ const panelHeight_mm = document.getElementById("height-mm");
 const panelWidth_mm = document.getElementById("width-mm");
 const panelHeight_in = document.getElementById("height-in");
 const panelWidth_in = document.getElementById("width-in");
+const panelHeight_ww = document.getElementById("height-woodwork")
+const panelWidth_ww = document.getElementById("width-woodwork")
+
 
 const diagonal = document.getElementById("diag");
 const areamm = document.getElementById("areamm");
@@ -103,6 +108,9 @@ function updateFromPanelCount() {
     panelHeight_in.value = (height_mm / 25.4).toFixed(2);
     panelWidth_in.value = (width_mm / 25.4).toFixed(2);
     diagonal.value = diagInInches.toFixed(2);
+    panelHeight_ww.value = height_mm+100;
+    panelWidth_ww.value = width_mm+100
+    quotation.wwDimension = (width_mm+100)*(height_mm+100)
 
     quotation.diagonal = diagInInches.toFixed(2);
     quotation.aream = ((height_mm * width_mm) / 1000000).toFixed(2);
