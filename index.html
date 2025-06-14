@@ -26,15 +26,14 @@
 
 
     <div class="h-screen w-screen bg-gray-100 overflow-x-hidden scroll-smooth dark:bg-gray-900 dark:text-white">
+        
         <!-- Header -->
-        <div class="w-screen p-4 flex justify-between items-center bg-white shadow-xl z-50  dark:bg-gray-800 dark:text-white"
-            style="position:sticky;top:0;" id="header">
-            <h1 class='font-bold font-stretch-ultra-condensed text-3xl'>Signature Screens </h1>
-        </div>
+        
         <div class="flex flex-col lg:flex-row lg:gap-4 lg:justify-center lg:items-start lg:mt-16 mt-20 max-sm:mt-1">
             <div class="home  lg:block ">
                 <!-- Series Config -->
                 <div class="flex flex-col m-4 bg-white p-4 gap-4 rounded-2xl shadow-2xl dark:bg-gray-800">
+                    
                     <h1 class="text-lg font-bold text-gray-800 dark:text-white">Signature Series</h1>
                     <div
                         class="flex-1 bg-blue-100 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700">
@@ -45,7 +44,11 @@
                             <option value="AS6">AS6 Series</option>
                             <option value="AS5" selected>AS5 Series</option>
                         </select>
+
+                        
+                        
                     </div>
+                    
 
                 </div>
                 <!-- Panel Config -->
@@ -98,6 +101,7 @@
 
 
                     </div>
+                    
 
 
                     <!-- Width & Height Inputs ft-->
@@ -196,8 +200,21 @@
                             <p class="text-sm font-medium font-semibold" id="areamm"></p>
 
                         </div>
+                        
+                        
 
                     </div>
+                    <div
+                            class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white dark:border-white">
+                            <input type="text" placeholder="Price" id="msp"
+                                class="bg-blue-200 w-full text-sm font-medium text-center outline-none dark:bg-gray-700 dark:text-white" />
+                        </div>
+                        <div
+                            class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex flex-col gap-1 justify-center items-center dark:bg-gray-700 dark:text-white dark:border-white">
+                            <p class="text-sm  font-bold">price with m^2</p>
+                            <p class="text-sm font-medium font-semibold" id="pmm"></p>
+
+                        </div>
                     <p class="">Area in Square Feet</p>
 
                     <div class="flex gap-4">
@@ -265,6 +282,14 @@
                         <span class="text-sm font-medium dark:bg-gray-700 dark:text-white" id="cost"></span>
                     </div>
 
+
+
+                    <div
+                            class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white dark:border-white">
+                            <input type="text" placeholder="Custom Price Per Panel" id="p_price_per"
+                                class="bg-blue-200 w-full text-sm font-medium font-bold text-center outline-none dark:bg-gray-700 dark:text-white" />
+                        </div>
+
                     <!-- Total Pannel Price  -->
                     <div
                         class="bg-blue-200 p-3 rounded-xl border border-black shadow flex flex-col gap-1 justify-center items-center dark:bg-gray-700 dark:text-white dark:border-white">
@@ -309,6 +334,7 @@
 
                     </div>
 
+
                     <!-- Processor Price -->
                     <div
                         class="bg-blue-200 p-3 rounded-xl border border-black shadow flex flex-col justify-center items-center dark:bg-gray-700 dark:text-white dark:border-white">
@@ -316,6 +342,12 @@
                         <span class="text-sm font-medium" id="p-price"> </span>
 
                     </div>
+                    <div
+                            class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white dark:border-white">
+                            <input type="text" placeholder="Custom Processor Price" id="ccprice"
+                                class="bg-blue-200 w-full text-sm font-medium font-bold text-center outline-none dark:bg-gray-700 dark:text-white" />
+                        </div>
+
 
                     <!-- Processor Price (incl GST) -->
                     <div
@@ -350,6 +382,11 @@
                         <span class="text-sm font-medium" id="i-price"> </span>
 
                     </div>
+                    <div
+                            class="flex-1 bg-blue-200 p-3 rounded-xl shadow border border-black flex justify-center items-center dark:bg-gray-700 dark:text-white dark:border-white">
+                            <input type="text" placeholder="Custom Installation Price" id="icprice"
+                                class="bg-blue-200 w-full text-sm font-medium font-bold text-center outline-none dark:bg-gray-700 dark:text-white" />
+                        </div>
 
                     <!-- Insatll Price (incl GST) -->
                     <div
@@ -448,6 +485,8 @@
                                     <td class="p-2"><span id="quote-diag" class="text-semibold">-</span> inches</td>
                                 </tr>
 
+                                
+
                                 <tr class="border">
                                     <th class="p-2 bg-gray-100">Area (sq.ft)</th>
                                     <td class="p-2">
@@ -515,7 +554,23 @@
                         </table>
 
                         <!-- Footer -->
+                         <p class="text-sm mt-4 text-gray-600">
+  <strong>Payment Terms:</strong><br>
+  • 60% Advance Payment – upon order confirmation.<br>
+  • 20% on Material Handover – after delivery of all materials.<br>
+  • 20% on Completion – after full installation and final handover.
+</p>
+<p class="text-sm mt-4 text-gray-600">
+  <strong>Warranty Details:</strong><br>
+  • 1 Year Signature Warranty.<br>
+  • Additional 2 Years of Free Service Warranty (Total: 3 Years).<br>
+  • <em>Optional:</em> 4 Years Full Warranty available at 5% of the total cost (<span id="4yw"></span>).
+</p>
+
+
                         <p class="text-sm mt-4 text-gray-600 ">Thank you for choosing us!</p>
+                        <p class="text-sm mt-4 text-gray-600 "></p>
+
                     </div>
 
 
