@@ -145,7 +145,7 @@ function updateFromPanelCount() {
     totalPix.innerHTML = totalPixels.toLocaleString();
 
     quotation.resolution = `${vPix.value} x ${hPix.value}`;
-    quotation.pixels = totalPixels;
+    quotation.pixels = totalPixels.toLocaleString();
     quotation.series = LEDList.label;
 
     let customPrice = parseFloat(custom_pprice.value.trim());
@@ -159,9 +159,9 @@ function updateFromPanelCount() {
     quotation.panelprice = tCost;
     quotation.panelGST = tCost + panelGST;
 
-    panelCost.innerHTML = customPrice.toLocaleString();
-    panelCGST.innerHTML = (tCost + panelGST).toLocaleString();
-    totalCost.innerHTML = tCost.toLocaleString();
+    panelCost.innerHTML = customPrice.toLocaleString(2);
+    panelCGST.innerHTML = (tCost + panelGST).toLocaleString(2);
+    totalCost.innerHTML = tCost.toLocaleString(2);
 
     if (phase2) updateProcessorCost();
     if (phase3) updateInstallCost();
