@@ -95,6 +95,8 @@ const pmm = document.getElementById('pmm')
 const yw4 = document.getElementById('4yw')
 const qhw = document.getElementById('quote-h-ww')
 const qww = document.getElementById('quote-mm-ww')
+const qhwi = document.getElementById('quote-hw-in')
+const qhwm = document.getElementById('quote-hw-mm')
 
 // MAIN function
 function updateFromPanelCount() {
@@ -127,9 +129,16 @@ function updateFromPanelCount() {
     const qhw_in_w = (panelWidth_ww.value/25.4).toFixed(2);
     const qww_mm_h = (panelHeight_ww.value/304.8).toFixed(2);
     const qww_mm_w = (panelWidth_ww.value/304.8).toFixed(2);
+    const win = (panelHeight_ww.value/25.4).toFixed(2);
+    const hin = (panelWidth_ww.value/25.4).toFixed(2);
+    const wmm = (panelHeight_ww.value/304.8).toFixed(2);
+    const hmm = (panelWidth_ww.value/304.8).toFixed(2);
 
     qww.innerHTML = `${qww_mm_h} x ${qww_mm_h}`
     qhw.innerHTML = `${qhw_in_w} x ${qhw_in_h}`
+    qhwi.innerHTML = `${win} x ${hin}`;
+    qhwm.innerHTML = `${wmm} x ${hmm}`;
+
 
     quotation.wwDimension = ((width_mm + 100) * (height_mm + 100)).toFixed(2);
     quotation.diagonal = diagInInches.toFixed(2);
@@ -254,7 +263,7 @@ function updateQuotationSummary() {
 
     document.getElementById("quote-grand-total").textContent = quotation.totalCost.toLocaleString();
     document.getElementById("quote-grand-total-gst").textContent = quotation.totalGST.toLocaleString();
-    yw4.innerHTML = quotation.totalCost*(5/100)
+    yw4.innerHTML = Math.round(quotation.totalCost * (5 / 100)).toLocaleString(2);
 
 }
 
