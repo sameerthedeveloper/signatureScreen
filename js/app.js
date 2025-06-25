@@ -129,7 +129,7 @@ function updateFromPanelCount() {
     const qww_mm_w = (panelWidth_ww.value/304.8).toFixed(2);
 
     qww.innerHTML = `${qww_mm_h} x ${qww_mm_h}`
-    qhw.innerHTML = `${qhw_in_h} x ${qhw_in_w}`
+    qhw.innerHTML = `${qhw_in_w} x ${qhw_in_h}`
 
     quotation.wwDimension = ((width_mm + 100) * (height_mm + 100)).toFixed(2);
     quotation.diagonal = diagInInches.toFixed(2);

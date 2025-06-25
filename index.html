@@ -19,6 +19,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="manifest" href="/manifest.json" />
 
+    <style>
+
+
+    </style>
+
 </head>
 </head>
 
@@ -438,13 +443,14 @@
 
 
 
-            <div class="quta hidden lg:block">
+            <div class="quta hidden lg:block " >
                 <div id="pdf-target" style="padding: 20px;">
 
-                    <div class="max-w-[210mm] mx-auto p-8 bg-white text-black text-sm font-sans shadow-md rounded-md">
+                    <div id="" class="max-w-[210mm] mx-auto p-8 bg-white text-black text-sm font-sans shadow-md rounded-md">
                         <h1 class="text-2xl font-bold mb-4 text-center">QUOTATION</h1>
 
-                        <!-- Top Grid: Company / Customer -->
+                        <div>
+                            <!-- Top Grid: Company / Customer -->
                         <div class="grid grid-cols-2 gap-6 mb-6">
                             <div>
                                 <h2 class="font-semibold">From:</h2>
@@ -500,14 +506,14 @@
                                 </tr>
 
                                 <tr class="border">
-                                    <th class="p-2 bg-gray-100">Height & Width (mm)</th>
+                                    <th class="p-2 bg-gray-100">Width & Height (mm)</th>
                                     <td class="p-2">
                                         <span id="quote-mm-ww">-</span> mm
                                     </td>
                                 </tr>
 
                                 <tr class="border">
-                                    <th class="p-2 bg-gray-100">Height & Width (in)</th>
+                                    <th class="p-2 bg-gray-100">Width & Height (in)</th>
                                     <td class="p-2">
                                         <span id="quote-h-ww">-</span> in
                                     </td>
@@ -573,24 +579,33 @@
                                 </tr>
                             </tbody>
                         </table>
+                        </div>
 
-                        <!-- Footer -->
-                         <p class="text-sm mt-4 text-gray-600">
-  <strong>Payment Terms:</strong><br>
-  • 60% Advance Payment – upon order confirmation.<br>
-  • 20% on Material Handover – after delivery of all materials.<br>
-  • 20% on Completion – after full installation and final handover.
-</p>
-<p class="text-sm mt-4 text-gray-600">
-  <strong>Warranty Details:</strong><br>
-  • 1 Year Signature Warranty.<br>
-  • Additional 2 Years of Free Service Warranty (Total: 3 Years).<br>
-  • <em>Optional:</em> 4 Years Full Warranty available at 5% of the total cost (<span id="4yw"></span>).
-</p>
-<p class="text-sm mt-4 text-gray-600">
-  <strong>Note:</strong><br>
-  • Woodwork(18mm Plywood), and Power supply should be provided by the customer.
-</p>
+                        <div class="pdf-footer-section">
+    <h1 class="text-lg font-bold text-gray-800 hidden pdf-title">Terms & Conditions</h1>
+    <p class="text-sm mt-4 text-gray-600">
+      <strong>Delivery Details:</strong><br>
+      • Delivery within 60 days from the date of order confirmation.<br>
+  </p>
+  <p class="text-sm mt-4 text-gray-600"></p>
+      <strong>Payment Terms:</strong><br>
+      • 60% Advance Payment – upon order confirmation.<br>
+      • 20% on Material Handover – after delivery of all materials.<br>
+      • 20% on Completion – after full installation and final handover.
+  </p>
+  <p class="text-sm mt-4 text-gray-600">
+      <strong>Warranty Details:</strong><br>
+      • 1 Year Signature Warranty.<br>
+      • Additional 2 Years of Free Service Warranty (Total: 3 Years).<br>
+      • <em>Optional:</em> 4 Years Full Warranty available at 5% of the total cost (<span id="4yw"></span>).
+  </p>
+  
+  <p class="text-sm mt-4 text-gray-600">
+      <strong>Note:</strong><br>
+      • Woodwork(18mm Plywood), and Power supply should be provided by the customer.
+  </p>
+</div>
+
 
                     </div>
 
