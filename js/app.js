@@ -21,6 +21,7 @@ let quotation = {
     pprice_c: '',
     prprice_c: '',
     iprice_c: '',
+    qhww:''
 };
 
 let phase1 = false;
@@ -92,6 +93,8 @@ const icprice = document.getElementById("icprice");
 const msp = document.getElementById('msp')
 const pmm = document.getElementById('pmm')
 const yw4 = document.getElementById('4yw')
+const qhw = document.getElementById('quote-h-ww')
+const qww = document.getElementById('quote-mm-ww')
 
 // MAIN function
 function updateFromPanelCount() {
@@ -120,6 +123,13 @@ function updateFromPanelCount() {
     diagonal.value = diagInInches.toFixed(2);
     panelHeight_ww.value = (height_mm + 100).toFixed(2);
     panelWidth_ww.value = (width_mm + 100).toFixed(2);
+    const qhw_in_h = (panelHeight_ww.value/25.4).toFixed(2);
+    const qhw_in_w = (panelWidth_ww.value/25.4).toFixed(2);
+    const qww_mm_h = (panelHeight_ww.value/304.8).toFixed(2);
+    const qww_mm_w = (panelWidth_ww.value/304.8).toFixed(2);
+
+    qww.innerHTML = `${qww_mm_h} x ${qww_mm_h}`
+    qhw.innerHTML = `${qhw_in_h} x ${qhw_in_w}`
 
     quotation.wwDimension = ((width_mm + 100) * (height_mm + 100)).toFixed(2);
     quotation.diagonal = diagInInches.toFixed(2);
