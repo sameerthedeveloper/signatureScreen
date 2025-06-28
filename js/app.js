@@ -21,7 +21,7 @@ let quotation = {
     pprice_c: '',
     prprice_c: '',
     iprice_c: '',
-    qhww:''
+    qhww: ''
 };
 
 let phase1 = false;
@@ -125,8 +125,8 @@ function updateFromPanelCount() {
     diagonal.value = diagInInches.toFixed(2);
     panelHeight_ww.value = (height_mm + 100).toFixed(2);
     panelWidth_ww.value = (width_mm + 100).toFixed(2);
-    const qhw_in_h = (panelHeight_ww.value/25.4).toFixed(2);
-    const qhw_in_w = (panelWidth_ww.value/25.4).toFixed(2);
+    const qhw_in_h = (panelHeight_ww.value / 25.4).toFixed(2);
+    const qhw_in_w = (panelWidth_ww.value / 25.4).toFixed(2);
     const qww_mm_h = (panelHeight_ww.value);
     const qww_mm_w = (panelWidth_ww.value);
     const win = (panelWidth_in.value);
@@ -145,7 +145,7 @@ function updateFromPanelCount() {
     quotation.aream = ((height_mm * width_mm) / 1000000).toFixed(2);
     quotation.areaft = ((height_mm * width_mm) / 92900).toFixed(2);
     areamm.innerHTML = quotation.aream;
-    pmm.innerHTML = quotation.aream*msp.value
+    pmm.innerHTML = quotation.aream * msp.value
     areaft.innerHTML = quotation.areaft;
 
     const totalPixels = (vVal * LEDList.vPixel) * (hVal * LEDList.hPixel);
@@ -274,4 +274,4 @@ processorSelect.addEventListener("input", updateProcessorCost);
 installSelect.addEventListener("input", updateInstallCost);
 ccprice.addEventListener("input", updateProcessorCost);
 icprice.addEventListener("input", updateInstallCost);
-msp.addEventListener('input',updateFromPanelCount)
+msp.addEventListener('input', updateFromPanelCount)
