@@ -129,8 +129,8 @@ function updateFromPanelCount() {
     const qhw_in_w = (panelWidth_ww.value/25.4).toFixed(2);
     const qww_mm_h = (panelHeight_ww.value);
     const qww_mm_w = (panelWidth_ww.value);
-    const win = (panelWidth_in.value).toFixed(2);
-    const hin = (panelHeight_in.value).toFixed(2);
+    const win = (panelWidth_in.value);
+    const hin = (panelHeight_in.value);
     const wmm = (panelWidth_mm.value);
     const hmm = (panelHeight_mm.value);
 
