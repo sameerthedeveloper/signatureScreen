@@ -127,12 +127,12 @@ function updateFromPanelCount() {
     panelWidth_ww.value = (width_mm + 100).toFixed(2);
     const qhw_in_h = (panelHeight_ww.value/25.4).toFixed(2);
     const qhw_in_w = (panelWidth_ww.value/25.4).toFixed(2);
-    const qww_mm_h = (panelHeight_ww.value/304.8).toFixed(2);
-    const qww_mm_w = (panelWidth_ww.value/304.8).toFixed(2);
+    const qww_mm_h = (panelHeight_ww.value);
+    const qww_mm_w = (panelWidth_ww.value);
     const win = (panelWidth_in.value/25.4).toFixed(2);
     const hin = (panelHeight_in.value/25.4).toFixed(2);
-    const wmm = (panelWidth_mm.value/304.8).toFixed(2);
-    const hmm = (panelHeight_mm.value/304.8).toFixed(2);
+    const wmm = (panelWidth_mm.value);
+    const hmm = (panelHeight_mm.value);
 
     qww.innerHTML = `${qww_mm_w} x ${qww_mm_h}`
     qhw.innerHTML = `${qhw_in_w} x ${qhw_in_h}`
